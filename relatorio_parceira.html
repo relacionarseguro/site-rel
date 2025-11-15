@@ -3,47 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Relatório de Conversas</title>
+    
     <link rel="stylesheet" href="style-relatorio.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        /* Estilo para deixar o ícone vermelho e separado */
+        .icone-exclamacao-vermelha { 
+            color: red; 
+            margin-right: 4px; 
+            font-size: 1.1em;
+        }
+    </style>
 </head>
 <body>
     
     <main>
         <header class="container_cabecalio">
-          <h1>Relatorio completo do Whatsapp</h1>
-          <p>Confira a baixo todo o relatorio como fotos, videos e conversas suspeitas do numero de whatsapp informado.</p>
+            <h1>Relatorio completo do Whatsapp</h1>
+            <p>Confira a baixo todo o relatorio como fotos, videos e conversas suspeitas do numero de whatsapp informado.</p>
         </header>
 
 
-        
-       <div class="container_conversas_principal">
-    <div class="container_conversas">
-         <div class="texto_apresentacao">
-            <img src="./imagem/icone-whatsapp01.png" class="icone-whatsapp">
-          <h3><strong class="palavra01">56 conversas encontradas</strong> foram encontradas durante a análise. O sistema conseguiu recuperar <strong class="palavra02">mensagens apagadas</strong>e algumas foram classificadas como <strong class="palavra03">críticas</strong> com base no conteúdo.</h3>
-            </div> 
-        <div class="conversas_recuperadas">
-            <img src="./imagens_fechadas/foto-perfil01.jpg" alt="Foto de Perfil" class="img_perfil">
-            <h2 id="tel01" class="numero_tel"></h2> 
+        <div class="container_conversas_principal">
+            <div class="container_conversas">
+                <div class="texto_apresentacao">
+                    <img src="./imagem/icone-whatsapp01.png" class="icone-whatsapp">
+                    <h3><strong class="palavra01">56 conversas encontradas</strong> foram encontradas durante a análise. O sistema conseguiu recuperar <strong class="palavra02">mensagens apagadas</strong>e algumas foram classificadas como <strong class="palavra03">críticas</strong> com base no conteúdo.</h3>
+                </div> 
+                
+                <div class="conversas_recuperadas">
+                    <img src="./imagens_fechadas/foto-perfil01.jpg" alt="Foto de Perfil" class="img_perfil">
+                    <div class="telegone_mensagem_recuperada">
+                        <h2 id="tel01" class="numero_tel"></h2>
+                        <p>
+                            <span class="material-symbols-outlined icone-exclamacao-vermelha">
+                                priority_high 
+                            </span>
+                            <span id="mensagem-rolante-01"></span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="conversas_recuperadas">
+                    <img src="./imagens_fechadas/foto-perfil02.jpg" alt="Foto de Perfil" class="img_perfil">
+                    <div class="telegone_mensagem_recuperada">
+                        <h2 id="tel02" class="numero_tel"></h2>
+                        <p>
+                            <span class="material-symbols-outlined icone-exclamacao-vermelha">
+                                priority_high 
+                            </span>
+                            <span id="mensagem-rolante-02"></span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="conversas_recuperadas">
+                    <img src="./imagens_fechadas/foto-perfil03.jpg" alt="Foto de Perfil" class="img_perfil">
+                    <div class="telegone_mensagem_recuperada">
+                        <h2 id="tel03" class="numero_tel"></h2>
+                        <p>
+                            <span class="material-symbols-outlined icone-exclamacao-vermelha">
+                                priority_high 
+                            </span>
+                            <span id="mensagem-rolante-03"></span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="conversas_recuperadas">
+                    <img src="./imagens_fechadas/foto-perfil04.jpg" alt="Foto de Perfil" class="img_perfil">
+                    <div class="telegone_mensagem_recuperada">
+                        <h2 id="tel04" class="numero_tel"></h2>
+                        <p>
+                            <span class="material-symbols-outlined icone-exclamacao-vermelha">
+                                priority_high 
+                            </span>
+                            <span id="mensagem-rolante-04"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="conversas_recuperadas">
-            <img src="./imagens_fechadas/foto-perfil02.jpg" alt="Foto de Perfil" class="img_perfil">
-            <h2 id="tel02" class="numero_tel"></h2>
-        </div>
-        
-        <div class="conversas_recuperadas">
-            <img src="./imagens_fechadas/foto-perfil03.jpg" alt="Foto de Perfil" class="img_perfil">
-            <h2 id="tel03" class="numero_tel"></h2>
-        </div>
-        
-        <div class="conversas_recuperadas">
-            <img src="./imagens_fechadas/foto-perfil04.jpg" alt="Foto de Perfil" class="img_perfil">
-            <h2 id="tel04" class="numero_tel"></h2>
-        </div>
-    </div>
-</div>
     </main>
+    
     <script src="whats.js"></script>
 </body>
 </html>

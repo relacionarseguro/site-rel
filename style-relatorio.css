@@ -154,3 +154,34 @@ MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telass > 1024px)
         font-size: 1.1em; /* Fonte um pouco maior para desktop */
     }
 }
+.telegone_mensagem_recuperada{
+ display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha o texto à esquerda */
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.582);
+}
+/* Estilo base para todos os ícones Material Symbols (se não tiver) */
+.material-symbols-outlined {
+     display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha o texto à esquerda */
+    font-variation-settings:
+    'FILL' 0, /* Não preenchido */
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Estilo personalizado para o ícone de interrogação */
+.icone-interrogacao-vermelha {
+    color: red; /* Define a cor vermelha */
+    font-size: 1.3em; /* Ajusta o tamanho para o texto */
+    margin-right: 4px; /* Adiciona um pequeno espaçamento após o ícone */
+    /* Você pode ajustar o 'FILL' para 1 se quiser o ícone preenchido */
+    /* font-variation-settings: 'FILL' 1; */
+}
+.numero_tel{
+  color: black;
+  margin-bottom: 5px;
+}
