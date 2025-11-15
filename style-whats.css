@@ -1,0 +1,452 @@
+/* Reset Básico */
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* 1. Estilo e Posicionamento do Header */
+.header-nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    position: relative; 
+    z-index: 200; 
+    height: 10vh;
+}
+
+/* 2. Estilo do Botão Hambúrguer */
+.hamburger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* 3. Estilo do Botão de Download */
+.download-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* 4. Estilo e Ocultação da Sidebar (Menu) */
+.nav-links {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    width: 250px; 
+    background-color: #222; 
+    padding-top: 60px; 
+    z-index: 150; 
+    display: flex;
+    flex-direction: column; 
+    transform: translateX(-100%); 
+    transition: transform 0.3s ease-in-out; 
+}
+
+.nav-links.active {
+    transform: translateX(0);
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block; 
+}
+
+.nav-links a:hover {
+    background-color: #555;
+}
+
+/* 5. Estilo da Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px; 
+    background-color: #f4f4f4; 
+    color: #333;
+}
+
+.hero-section h1 {
+    font-size: 2.5em; 
+    margin-top: 0; 
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    max-width: 600px; 
+    margin: 10px auto 0 auto; 
+}
+
+/* Estilos de Parceiros (Responsividade em Telas Grandes/Notebook) */
+.container-parceiro-parceira{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+}
+.parceiros{
+    /* Notebook: 50% é um bom tamanho */
+    width: 50%; 
+    height: 20vh;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.362); /* Reintroduzido o box-shadow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(5, 94, 5);
+    background-color: rgb(127, 197, 127);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.parceiros:hover{
+    width: 49%;
+    height: 19vh;
+    transition: 0.3s;
+    margin-top: 7px;
+    background-color: rgb(49, 214, 49);
+}
+
+/* Estilos do Input e Botão Monitorar */
+.container-redes-sociais{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.tel_phone{
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.362);
+    margin-bottom: 20px;
+    margin-top: 8px;
+    font-size: 1.5em;
+    text-align: center;
+}
+.btn-monitorar{
+    width: 300px;
+    height: 40px;
+    background-color: #28a745; 
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: none; /* Garante que o box-shadow seja zero quando não estiver piscando */
+    font-size: 1.3em;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+.btn-monitorar:hover{
+    width: 295px;
+    height: 38px;
+    background-color: rgb(64, 175, 64);
+    box-shadow: none;
+}
+
+/* Animação de Piscar */
+@keyframes piscar-forte {
+    0% { opacity: 0.5; background-color: #28a745; }
+    50% { opacity: 1.0; background-color: #38c156; }
+    100% { opacity: 0.5; background-color: #28a745; }
+}
+
+.piscar {
+    animation: piscar-forte 0.7s infinite alternate ease-in-out; 
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.9), 
+                0 0 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.7s ease-in-out; 
+}
+
+/* ========================================================= */
+/* ESTILOS POPUP */
+/* ========================================================= */
+
+.popup-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1000; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.popup-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /* max-width ajustado para um bom tamanho em notebook */
+    max-width: 500px; 
+    width: 90%; /* Garante que ocupe a maioria da largura no celular */
+    height: auto; 
+    min-height: 450px; 
+}
+
+/* Estilos da Barra de Carregamento (Barra de 5s e 30s) */
+.loading-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden; 
+}
+
+/* Preenchimento da barra de 5 segundos */
+.loading-bar-fill {
+    height: 100%;
+    width: 0%; 
+    background-color: #28a745; 
+    transition: width 5s linear; 
+}
+
+/* CORREÇÃO: Preenchimento da barra de 30 segundos (Relatório) */
+.relatorio-loading-bar-fill {
+    height: 100%;
+    width: 0%; 
+    background-color: #28a745; /* <--- A cor verde para o carregamento de 30s */
+}
+
+.btn-fechar-popup{
+    background-color: #4692e4;
+    color: white;
+}
+
+/* ========================================================= */
+/* CONTAINER PERFIL WHATSAPP (Ajustes de layout) */
+/* ========================================================= */
+
+.container-perfil-whatsapp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row; /* Padrão: Imagem e texto lado a lado */
+    margin: 15px 0; 
+}
+
+.status-perfil{
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 0 0 10px; 
+}
+
+.img-01{
+    width: 100px;
+    border: 2px solid rgb(94, 243, 91);
+    border-radius: 50%;
+}
+
+/* Reset e Controle de Espaçamento dos Elementos de Texto */
+.status-perfil h2,
+.status-perfil h3,
+.status-perfil p {
+    margin: 0; 
+    padding: 0; 
+    line-height: 1.2; 
+    text-align: left; 
+    width: 100%; 
+}
+
+/* Espaçamento Controlado e Fino */
+.status-perfil h2 {
+    font-size: 1.2em;
+    margin-bottom: 2px; 
+}
+
+.numero-whatsap{
+    font-size: 1em;
+    font-weight: normal; 
+    margin-bottom: 2px; 
+}
+
+.status-online {
+    color: rgb(49, 214, 49);
+    font-size: 0.9em;
+    display: flex; /* Garante alinhamento horizontal do ponto */
+    align-items: center; 
+}
+
+.online-dot {
+    display: inline-block;
+    width: 8px; 
+    height: 8px; 
+    border-radius: 50%; 
+    background-color: rgb(49, 214, 49); 
+    margin-right: 5px; 
+    transform: translateY(-1px); 
+}
+
+.traco{
+    width: 100%;
+    border: 1px solid black;
+}
+
+.content-local{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+/* Estilos não utilizados no HTML que você forneceu: */
+.h3_cidade{ color: rgb(49, 214, 49); }
+.cidade_localizacao{ display: flex; align-items: center; flex-direction: row; }
+.img_map_celular{ margin-right: 20px; }
+.perfil-whatsapp, .numero-whatsap { justify-content: center; } /* Removido alinhamento aqui, use flex-start/center na Media Query */
+
+
+/* ========================================================= */
+/* MEDIA QUERY: TABLETS E NOTEBOOKS MENORES (até 1024px) */
+/* ========================================================= */
+@media (max-width: 1024px) {
+    /* Ajusta o padding do Header para telas menores */
+    .header-nav {
+        padding: 8px 15px;
+    }
+
+    /* Reduz a largura dos parceiros para telas de tablet */
+    .parceiros {
+        width: 70%; /* Ocupa mais espaço horizontal em telas de tablet */
+    }
+
+    .parceiros:hover{
+        width: 69%;
+    }
+}
+
+
+/* ========================================================= */
+/* MEDIA QUERY: CELULARES (até 600px) */
+/* ========================================================= */
+@media (max-width: 600px) {
+    
+    /* 1. Ajuste de Tamanhos Gerais */
+    .hero-section {
+        padding: 30px 10px; /* Reduz o padding na Hero Section */
+    }
+    
+    /* 2. Parceiros */
+    .parceiros {
+        width: 90%; /* Ocupa quase toda a largura */
+        height: 15vh;
+    }
+    .parceiros:hover{
+        width: 88%;
+        height: 14vh;
+    }
+    
+    /* 3. Popup */
+    .popup-content {
+        padding: 20px 15px; /* Reduz o padding interno do popup */
+        min-height: 400px;
+    }
+
+    /* 4. Perfil Whatsapp (Muda para Vertical) */
+    .container-perfil-whatsapp {
+        flex-direction: column; /* Imagem em cima, texto embaixo */
+        width: 100%; 
+    }
+
+    .img-01 {
+        width: 80px; 
+        margin-bottom: 10px; 
+    }
+
+    /* 5. Bloco de Status */
+    .status-perfil {
+        align-items: center; /* Centraliza o bloco de texto */
+        margin: 0; /* Remove a margem lateral */
+        width: 100%;
+    }
+
+    /* 6. Centralizar o Texto */
+    .status-perfil h2,
+    .status-perfil h3,
+    .status-perfil p {
+        text-align: center; /* Centraliza o texto */
+    }
+    
+    .status-online {
+        justify-content: center; /* Centraliza o ponto e o texto "online" juntos */
+    }
+}
+
+.btn_relatorio{
+    width: 40%;
+    height: 10vh;
+    border: 2px solid black;
+    background-color: rgb(123, 235, 97);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.651);
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.btn_relatorio:hover{
+    width: 39%;
+    height: 9vh;
+    border: 2px solid black;
+    background-color: rgb(59, 149, 39);
+    box-shadow: none;
+    font-size: 1,3em;
+    margin : 3.5px;
+}
+
+/* Container principal das buscas */
+.search-output-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Estilo para cada item retangular (div) */
+.search-item {
+    background-color: #1a1a1a; /* Fundo escuro */
+    color: #00ff41; /* Texto verde de terminal */
+    border: 1px solid #00ff41;
+    padding: 8px;
+    margin-bottom: 5px; /* Espaçamento entre as divs */
+    font-family: monospace; /* Fonte monoespaçada para efeito de código */
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between; /* Alinha label e valor em lados opostos */
+    overflow: hidden; /* Garante que as frases fiquem contidas */
+    white-space: nowrap;
+}
+
+.search-label {
+    color: #ffffff; /* Label mais claro */
+}
+
+/* Efeito sutil de brilho no texto (opcional) */
+.search-value {
+    text-shadow: 0 0 2px rgba(0, 255, 65, 0.7);
+}
