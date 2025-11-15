@@ -1,73 +1,156 @@
-*{
+/*
+====================================
+ESTILOS BASE (Móvel por Padrão - Mobile First)
+Aplicam-se a telas pequenas e a todos os outros dispositivos
+====================================
+*/
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
-.container_cabecalio{
+
+/* Base: Altura mantida, mas fontes e margens ajustadas */
+.container_cabecalio {
     width: 100%;
-    height: 30vh;
+    height: 30vh; /* Mantém a altura baseada na altura da tela */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: rgb(133, 240, 133);
+    padding: 10px; /* Adiciona padding para evitar que o conteúdo toque as bordas */
 }
-.container_conversas_principal{
+
+/* Elementos do cabeçalho */
+.icone-whatsapp {
+    width: 40px; /* Reduz o ícone para telas menores */
+    margin-bottom: 10px;
+}
+
+/* Base: Ajustamos o width para 95% para telas menores */
+.container_conversas_principal {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 15px;
+    width: 100%;
 }
-.container_conversas{
+
+.container_conversas {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 70%;
-    height: 70vh;
+    width: 95%; /* Ocupa quase toda a largura em telas pequenas */
+    height: auto; /* Altura automática (pode ser necessário ajustar com JavaScript) */
+    min-height: 60vh; /* Define uma altura mínima */
     padding: 10px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.373);
-    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+    margin-bottom: 15px;
 }
-.conversas_recuperadas{
+
+.conversas_recuperadas {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Alinha à esquerda em telas pequenas */
     align-items: center;
     flex-direction: row;
-    width: 70%;
-    height: 15vh;
+    width: 100%; /* Ocupa toda a largura do container pai */
+    height: 12vh; /* Altura relativa */
     border: 1px solid black;
-    border-radius: 15px;
-    margin: 10px;
-    color: black;
+    border-radius: 10px;
+    margin: 8px 0; /* Margem vertical ajustada */
+    padding: 5px;
 }
-.img_perfil{
-    width: 50px;
-    margin-right: 20px;
 
+.img_perfil {
+    width: 40px; /* Perfil menor */
+    min-width: 40px; /* Garante que não diminua demais */
+    margin-right: 10px;
 }
-.texto_apresentacao{
+
+.texto_apresentacao {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinha o texto à esquerda */
     flex-direction: column;
     width: 100%;
-    padding: 10px;
+    padding: 5px;
+    font-size: 0.9em; /* Reduz o tamanho da fonte */
+}
 
+/* Cores mantidas */
+.palavra01 { color: rgb(238, 51, 18); }
+.palavra02 { color: rgb(235, 182, 37); }
+.palavra03 { color: rgb(238, 51, 18); }
+
+
+/*
+====================================
+MEDIA QUERY PARA TABLET (Telass > 600px)
+====================================
+*/
+@media (min-width: 600px) {
+    .icone-whatsapp {
+        width: 50px;
+        margin-bottom: 20px;
+    }
+
+    .container_conversas {
+        width: 80%; /* Aumenta a largura na tela do tablet */
+        min-height: 70vh;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.373);
+        margin-bottom: 20px;
+    }
+
+    .conversas_recuperadas {
+        width: 85%; /* Um pouco menor que 100% no tablet */
+        height: 15vh;
+        border-radius: 15px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .img_perfil {
+        width: 50px;
+        min-width: 50px;
+        margin-right: 20px;
+    }
+
+    .texto_apresentacao {
+        font-size: 1em; /* Tamanho da fonte padrão */
+    }
 }
-.palavra01{
-    color: rgb(238, 51, 18);
-}
-.palavra02{
-    color: rgb(235, 182, 37);
-}
-.palavra03{
-    color: rgb(238, 51, 18);
-}
-.icone-whatsapp{
-    width: 50px;
-    margin-bottom: 20px;
+
+
+/*
+====================================
+MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telass > 1024px)
+====================================
+*/
+@media (min-width: 1024px) {
+    .container_conversas {
+        width: 70%; /* Retorna para a largura original/desejada */
+        min-height: 70vh;
+        padding: 30px;
+    }
+
+    .conversas_recuperadas {
+        width: 70%; /* Retorna para a largura original/desejada */
+        height: 15vh;
+    }
+
+    .img_perfil {
+        width: 60px; /* Aumenta um pouco em desktop */
+        min-width: 60px;
+        margin-right: 25px;
+    }
+
+    .texto_apresentacao {
+        font-size: 1.1em; /* Fonte um pouco maior para desktop */
+    }
 }
