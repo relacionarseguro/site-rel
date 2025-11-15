@@ -44,7 +44,7 @@ Aplicam-se a telas pequenas e a todos os outros dispositivos
     align-items: center;
     flex-direction: column;
     width: 95%; /* Ocupa quase toda a largura em telas pequenas */
-    height: auto; /* Altura automática (pode ser necessário ajustar com JavaScript) */
+    height: auto; /* Altura automática */
     min-height: 60vh; /* Define uma altura mínima */
     padding: 10px;
     border-radius: 15px;
@@ -86,6 +86,75 @@ Aplicam-se a telas pequenas e a todos os outros dispositivos
 .palavra02 { color: rgb(235, 182, 37); }
 .palavra03 { color: rgb(238, 51, 18); }
 
+/* Novos estilos responsivos: */
+.telegone_mensagem_recuperada {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.582);
+    /* Adiciona flexibilidade para ocupar o espaço restante */
+    flex-grow: 1; 
+}
+
+.numero_tel {
+    color: black;
+    margin-bottom: 5px;
+    font-size: 1em; /* Tamanho base */
+}
+
+/* Estilos da seção de fotos */
+.container_fotos_proibidas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 95%; /* Ajustado para 95% em mobile */
+    height: auto;
+    min-height: 60vh;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    margin-top: 15px; /* Adicionado para consistência */
+}
+
+.fotos_conjunto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fotos01 {
+    width: 90%; /* Ajustado para 90% da largura do container em mobile */
+    max-width: 300px; /* Garante que não ultrapasse 300px em mobile */
+    margin: 10px;
+    border: 4px solid rgb(243, 86, 43);
+    border-radius: 20px;
+}
+
+
+/* Estilo base para todos os ícones Material Symbols (se não tiver) */
+.material-symbols-outlined {
+    /* Mantido o display: flex para que o span p possa alinhá-lo */
+    display: flex;
+    align-items: center; 
+    font-variation-settings:
+    'FILL' 0, /* Não preenchido */
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Estilo personalizado para o ícone de interrogação */
+.icone-exclamacao-vermelha { /* Corrigi o nome para o usado no HTML */
+    color: red; /* Define a cor vermelha */
+    font-size: 1.3em; /* Ajusta o tamanho para o texto */
+    margin-right: 4px; /* Adiciona um pequeno espaçamento após o ícone */
+    /* Garante que o ícone e o texto fiquem na mesma linha */
+    display: inline-block; 
+}
 
 /*
 ====================================
@@ -98,7 +167,8 @@ MEDIA QUERY PARA TABLET (Telass > 600px)
         margin-bottom: 20px;
     }
 
-    .container_conversas {
+    .container_conversas,
+    .container_fotos_proibidas { /* Aplicado ao container de fotos também */
         width: 80%; /* Aumenta a largura na tela do tablet */
         min-height: 70vh;
         padding: 20px;
@@ -124,6 +194,15 @@ MEDIA QUERY PARA TABLET (Telass > 600px)
     .texto_apresentacao {
         font-size: 1em; /* Tamanho da fonte padrão */
     }
+    
+    .numero_tel {
+        font-size: 1.1em; /* Aumenta a fonte do telefone */
+    }
+    
+    .fotos01 {
+        width: 70%; /* Aumenta um pouco a largura da foto no tablet */
+        max-width: 450px; /* Limite um pouco maior */
+    }
 }
 
 
@@ -133,15 +212,18 @@ MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telass > 1024px)
 ====================================
 */
 @media (min-width: 1024px) {
-    .container_conversas {
-        width: 70%; /* Retorna para a largura original/desejada */
+    .container_conversas,
+    .container_fotos_proibidas { /* Aplicado ao container de fotos também */
+        width: 65%; /* Define uma largura ideal para desktop */
+        max-width: 900px; /* Opcional: Define uma largura máxima */
         min-height: 70vh;
         padding: 30px;
     }
 
     .conversas_recuperadas {
-        width: 70%; /* Retorna para a largura original/desejada */
+        width: 70%; /* Define a largura ideal das conversas internas */
         height: 15vh;
+        padding: 15px 20px; /* Aumenta o padding interno para melhor visualização */
     }
 
     .img_perfil {
@@ -153,35 +235,28 @@ MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telass > 1024px)
     .texto_apresentacao {
         font-size: 1.1em; /* Fonte um pouco maior para desktop */
     }
-}
-.telegone_mensagem_recuperada{
- display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinha o texto à esquerda */
-    flex-direction: column;
-    color: rgba(0, 0, 0, 0.582);
-}
-/* Estilo base para todos os ícones Material Symbols (se não tiver) */
-.material-symbols-outlined {
-     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinha o texto à esquerda */
-    font-variation-settings:
-    'FILL' 0, /* Não preenchido */
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
-}
+    
+    .numero_tel {
+        font-size: 1.2em; /* Fonte do telefone maior */
+    }
 
-/* Estilo personalizado para o ícone de interrogação */
-.icone-interrogacao-vermelha {
-    color: red; /* Define a cor vermelha */
-    font-size: 1.3em; /* Ajusta o tamanho para o texto */
-    margin-right: 4px; /* Adiciona um pequeno espaçamento após o ícone */
-    /* Você pode ajustar o 'FILL' para 1 se quiser o ícone preenchido */
-    /* font-variation-settings: 'FILL' 1; */
-}
-.numero_tel{
-  color: black;
-  margin-bottom: 5px;
+    .fotos01 {
+        width: 50%; /* Ocupa menos espaço no container em desktop, focando na imagem */
+        max-width: 500px;
+    }
+    
+    .fotos_conjunto {
+        /* Permite que as fotos fiquem lado a lado se houver espaço */
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: space-around;
+        width: 100%;
+        background-color: rgba(255, 99, 71, 0.385);
+    }
+    
+    /* Quando fotos_conjunto estiver em linha, ajuste a largura individual das fotos */
+    .fotos_conjunto .fotos01 {
+        width: 45%; /* Duas fotos por linha, aproximadamente */
+        max-width: 350px;
+    }
 }

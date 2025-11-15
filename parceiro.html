@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style-whats.css">
+    <title>Monitoramento de Telefone</title>
+    <link rel="stylesheet" href="style-whats.css"> 
 </head>
 <body>
-    <h1>conteudo dele</h1>
+    <h1>Conteúdo da sua página</h1>
     
-   <header class="header-nav">
+    <header class="header-nav">
         <button class="hamburger-btn" aria-label="Abrir Menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -26,8 +26,73 @@
         <button id="download-app-btn" class="download-btn">
             Download App
         </button>
+    </header>  
 
-    </header>
-        <script src="whats.js"></script>
+    <div class="hero-section">
+        <h1>Parabéns! você ganhou 10 dias de monitoramento gratuito.</h1>
+        <p>Insira o número abaixo e inicie o monitoramento silencioso</p>
+    </div>
+
+    <div class="container-redes-sociais">
+        <label>whatsapp</label>
+        <input 
+            type="tel" 
+            name="tel_phone" 
+            id="tel_phone" 
+            class="tel_phone"
+            maxlength="15" 
+            placeholder="(XX) XXXXX-XXXX"
+            >
+        <button class="btn-monitorar">monitorar</button>
+    </div>
+
+    <div id="loading-popup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Carregando Sistema...</h3>
+            <div class="loading-bar">
+                <div class="loading-bar-fill"></div>
+            </div>
+            <p>Aguarde 5 segundos</p>
+        </div>
+    </div>
+
+    <div id="data-popup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="data-popup-content">
+              <button id="btn_relatorio" class="btn_relatorio">Ver Conversas</button>
+              </div>
+        </div>
+    </div>
+
+    <div id="relatorio-loading-popup" class="popup-overlay">
+    <div class="popup-content">
+        <h3>Preparando Relatório de Conversas...</h3>
+        <p id="relatorio-loading-counter">Carregando: 0s</p> 
+        <div class="loading-bar">
+            <div class="relatorio-loading-bar-fill"></div>
+        </div>
+        <p>Aguarde, este processo pode levar até 30 segundos para conectar.</p>
+        
+        <div class="search-output-container">
+            <div class="search-item">
+                <span class="search-label">Buscando Fotos:</span>
+                <span id="output-fotos" class="search-value">0 foto suspeita</span>
+            </div>
+            <div class="search-item">
+                <span class="search-label">Analisando Conversas:</span>
+                <span id="output-conversas" class="search-value">0 conversa suspeita</span>
+            </div>
+            <div class="search-item">
+                <span class="search-label">Verificando Arquivos:</span>
+                <span id="output-arquivos" class="search-value">Iniciando busca...</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+    
+
+    <script src="whats02.js"></script>
 </body>
 </html>
