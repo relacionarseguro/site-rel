@@ -230,6 +230,7 @@ MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telass > 1024px)
         width: 60px; /* Aumenta um pouco em desktop */
         min-width: 60px;
         margin-right: 25px;
+        background-size: cover;
     }
 
     .texto_apresentacao {
@@ -243,6 +244,8 @@ MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telass > 1024px)
     .fotos01 {
         width: 50%; /* Ocupa menos espaço no container em desktop, focando na imagem */
         max-width: 500px;
+        background-size: cover;
+        background-position: center;
     }
     
     .fotos_conjunto {
@@ -252,6 +255,7 @@ MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telass > 1024px)
         justify-content: space-around;
         width: 100%;
         background-color: rgba(255, 99, 71, 0.385);
+        border-radius: 20px;
     }
     
     /* Quando fotos_conjunto estiver em linha, ajuste a largura individual das fotos */
