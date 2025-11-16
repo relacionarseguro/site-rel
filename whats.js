@@ -1,5 +1,5 @@
 // =========================================================
-//            MAPA DE DDD E CIDADES (BRASIL)
+//              MAPA DE DDD E CIDADES (BRASIL)
 // =========================================================
 const DDD_TO_CITY = {
     // DDDs 1x: São Paulo (SP)
@@ -37,38 +37,39 @@ const DDD_TO_CITY = {
 };
 
 // =========================================================
-//             SELETORES INICIAIS
+//              SELETORES GLOBAIS
 // =========================================================
+// Seletores de navegação/botões
 const hamburgerBtn = document.querySelector('.hamburger-btn');
 const navLinks = document.querySelector('.nav-links');
-const navLinksList = document.querySelectorAll('.nav-links a');
-const downloadBtn = document.getElementById('download-app-btn');
 const parceiro = document.querySelector('#parceiro');
 const parceira = document.querySelector('#parceira');
+const downloadBtn = document.getElementById('download-app-btn');
 
+// Seletores do formulário de monitoramento
 const inputTelefone = document.getElementById('tel_phone');
 const botaoMonitorar = document.querySelector('.btn-monitorar');
 const MIN_DIGITOS_CELULAR = 11;
 
-// Seletores Popups de 5s
+// Seletores Popups de 5s (Busca Rápida)
 const loadingPopup = document.getElementById('loading-popup');
 const loadingBarFill = document.querySelector('.loading-bar-fill');
 const dataPopup = document.getElementById('data-popup');
 const dataPopupContent = document.querySelector('.data-popup-content');
 
-// Seletores Popups de 30s
+// Seletores Popups de 30s (Relatório Final)
 const relatorioLoadingPopup = document.getElementById('relatorio-loading-popup');
 const relatorioLoadingBarFill = document.querySelector('.relatorio-loading-bar-fill');
 const relatorioLoadingCounter = document.getElementById('relatorio-loading-counter');
 
-// Seletores Animação de Busca Rápida
+// Seletores Animação de Busca Rápida (Textos dinâmicos)
 const outputFotos = document.getElementById('output-fotos');
 const outputConversas = document.getElementById('output-conversas');
 const outputArquivos = document.getElementById('output-arquivos');
 
 
 // =========================================================
-//                 1. NAVEGAÇÃO / MENU
+//          1. NAVEGAÇÃO E UTILS
 // =========================================================
 if (parceira) {
     parceira.addEventListener('click', () => {
@@ -82,13 +83,15 @@ if (parceiro) {
     });
 }
 
-// =========================================================
-//                 2. BOTÃO DE DOWNLOAD
-// =========================================================
-// (Seu código de download)
+function obterCidadePeloDDD(telefoneFormatado) {
+    const apenasNumeros = telefoneFormatado.replace(/\D/g, '');
+    const ddd = apenasNumeros.substring(0, 2);
+    return DDD_TO_CITY[ddd] || 'Localização Desconhecida';
+}
+
 
 // =========================================================
-//          3. MÁSCARA E EFEITO DO TELEFONE
+//          2. MÁSCARA E VALIDAÇÃO DO TELEFONE
 // =========================================================
 
 function formatarTelefone(input) {
@@ -123,22 +126,13 @@ if (inputTelefone && botaoMonitorar) {
     inputTelefone.addEventListener('input', () => {
         formatarTelefone(inputTelefone);
     });
+    // Inicia o botão desabilitado na página inicial
     botaoMonitorar.disabled = true;
 }
 
 
 // =========================================================
-//             FUNÇÕES DE UTILIDADE
-// =========================================================
-
-function obterCidadePeloDDD(telefoneFormatado) {
-    const apenasNumeros = telefoneFormatado.replace(/\D/g, '');
-    const ddd = apenasNumeros.substring(0, 2);
-    return DDD_TO_CITY[ddd] || 'Localização Desconhecida';
-}
-
-// =========================================================
-// **4. GERAÇÃO, MASCARAMENTO E ARMAZENAMENTO**
+//          3. GERAÇÃO DE NÚMEROS OCULTOS
 // =========================================================
 
 function gerarNumeroAleatorioNoveDigitos() {
@@ -181,7 +175,7 @@ function preencherNumerosNoRelatorio() {
     const numerosJSON = localStorage.getItem('telefonesRelatorio');
     
     if (!numerosJSON) {
-        console.warn("Nenhum número de telefone encontrado no localStorage. Preenchendo com 'Não Encontrado'.");
+        // Se não houver números, preenche com placeholder
         for (let i = 1; i <= 4; i++) {
              const h2Element = document.getElementById(`tel0${i}`);
              if(h2Element) h2Element.textContent = "(XX) XXXXX-XXXX";
@@ -203,8 +197,66 @@ function preencherNumerosNoRelatorio() {
 
 
 // =========================================================
-//      5. FUNCIONALIDADE DE MONITORAMENTO (5s)
+//          4. FUNÇÕES DE POPUP E CARREGAMENTO
 // =========================================================
+
+// Função global para fechar o popup de dados (usada no onclick do HTML)
+window.fecharPopupDados = function() {
+    if (dataPopup) {
+        dataPopup.style.display = 'none';
+    }
+}
+
+function abrirPopupDados(telefone) {
+    const numeroParaExibir = telefone || 'Número não fornecido';
+    const cidadeAtual = obterCidadePeloDDD(telefone);
+    
+    if (dataPopup) {
+        if (dataPopupContent) {
+            // Conteúdo do popup de 5s (Dados)
+            dataPopupContent.innerHTML = `
+                 <p>Aqui vai vir os dados.</p>
+                 <button class="btn-fechar-popup" onclick="fecharPopupDados()">Fechar</button>
+                 <div class="container-perfil-whatsapp">
+                    <img src="./imagem/icone-whatsapp02.png" alt="" class="img-01">
+                    <div class="status-perfil">
+                    <h2 class="perfil-whatsapp">Perfil Whatsapp</h2>
+                    <h3 class="numero-whatsap">${numeroParaExibir}</h3>
+                    <p class="status-online">
+                    <span class="online-dot"></span> online a poucos minutos </p>
+                    </div>
+                 </div>
+                 <div class="traco"></div>
+                 <div class="content-local">
+                      <div class="localizacao">
+                      <div class="cidade_localizacao">
+                      <img src="./imagem/icon-celular.png" class="img_map_celular">
+                      <p id="cidade_atual" class="localizacao_atual">Conectado em:</p>
+                      <h3 class="h3_cidade">${cidadeAtual}</h3>
+                      </div>
+                      <div class="cidade_localizacao">
+                      <img src="./imagem/icone_map.png" class="img_map_celular">
+                      <p id="cidade_atual" class="localizacao_atual">Status:</p>
+                      <h3 class="h3_cidade">Ativo</h3>
+                      </div>
+                      </div>
+                 </div>
+                 <button id="btn-relatorio-dinamico" class="btn_relatorio">Ver Conversas</button>
+            `;
+            
+            setTimeout(() => {
+                const btnRelatorioDinamico = document.getElementById('btn-relatorio-dinamico');
+                
+                if (btnRelatorioDinamico) {
+                    btnRelatorioDinamico.addEventListener('click', () => {
+                        iniciarCarregamentoRelatorio();
+                    });
+                }
+            }, 10);
+        }
+        dataPopup.style.display = 'flex';
+    }
+}
 
 function iniciarCarregamento(telefone) {
     if (loadingPopup && loadingBarFill && dataPopup) {
@@ -213,7 +265,7 @@ function iniciarCarregamento(telefone) {
         
         loadingBarFill.style.transition = 'none';
         loadingBarFill.style.width = '0%';
-        loadingBarFill.offsetWidth;
+        loadingBarFill.offsetWidth; // Recalcula o layout para resetar
         
         loadingBarFill.style.transition = 'width 5s linear';
         loadingBarFill.style.width = '100%';
@@ -225,69 +277,8 @@ function iniciarCarregamento(telefone) {
     }
 }
 
-
-function abrirPopupDados(telefone) {
-    const numeroParaExibir = telefone || 'Número não fornecido';
-    const cidadeAtual = obterCidadePeloDDD(telefone);
-    
-    if (dataPopup) {
-        if (dataPopupContent) {
-            dataPopupContent.innerHTML = `
-                <p>Aqui vai vir os dados.</p>
-                <button class="btn-fechar-popup" onclick="fecharPopupDados()">Fechar</button>
-                 <div class="container-perfil-whatsapp">
-                    <img src="./imagem/icone-whatsapp02.png" alt="" class="img-01">
-                    <div class="status-perfil">
-                    <h2 class="perfil-whatsapp">Perfil Whatsapp</h2>
-                    <h3 class="numero-whatsap">${numeroParaExibir}</h3>
-                    <p class="status-online">
-                    <span class="online-dot"></span> online a poucos minutos </p>
-                    </div>
-                 </div>
-                 <div class="traco"></div>
-                     <div class="content-local">
-                          <div class="localizacao">
-                          <div class="cidade_localizacao">
-                          <img src="./imagem/icon-celular.png" class="img_map_celular">
-                          <p id="cidade_atual" class="localizacao_atual">Conectado em:</p>
-                          <h3 class="h3_cidade">${cidadeAtual}</h3>
-                          </div>
-                          <div class="cidade_localizacao">
-                          <img src="./imagem/icone_map.png" class="img_map_celular">
-                          <p id="cidade_atual" class="localizacao_atual">Status:</p>
-                          <h3 class="h3_cidade">Ativo</h3>
-                          </div>
-                          </div>
-                     </div>
-                   <button id="btn-relatorio-dinamico" class="btn_relatorio">Ver Conversas</button>
-               `;
-            
-            setTimeout(() => {
-                const btnRelatorioDinamico = document.getElementById('btn-relatorio-dinamico');
-                
-                if (btnRelatorioDinamico) {
-                    btnRelatorioDinamico.addEventListener('click', () => {
-                        iniciarCarregamentoRelatorio();
-                    });
-                }
-            }, 10);
-            
-        }
-        dataPopup.style.display = 'flex';
-    }
-}
-
-function fecharPopupDados() {
-    if (dataPopup) {
-        dataPopup.style.display = 'none';
-    }
-}
-
-// =========================================================
-//      6. ANIMAÇÕES DE BUSCA RÁPIDA (30s)
-// =========================================================
-
 function iniciarBuscaRapida() {
+    // ... (CÓDIGO DA ANIMAÇÃO DE BUSCA RÁPIDA - MANTIDO) ...
     const frasesArquivos = [
         "checando metadados...", "tentativa de conexão (1)...",
         "analisando cache do dispositivo...", "criptografia bypass: 85%",
@@ -340,16 +331,12 @@ function iniciarBuscaRapida() {
     // Interrompe a busca rápida no final do carregamento de 30 segundos
     setTimeout(() => {
         clearInterval(intervalBusca);
-        outputFotos.textContent = `Busca de Fotos CONCLUÍDA (${maxFotos} encontradas)`;
-        outputConversas.textContent = `Busca de Conversas CONCLUÍDA (${maxConversas} encontradas)`;
-        outputArquivos.textContent = `Busca de Arquivos CONCLUÍDA.`;
+        if (outputFotos) outputFotos.textContent = `Busca de Fotos CONCLUÍDA (${maxFotos} encontradas)`;
+        if (outputConversas) outputConversas.textContent = `Busca de Conversas CONCLUÍDA (${maxConversas} encontradas)`;
+        if (outputArquivos) outputArquivos.textContent = `Busca de Arquivos CONCLUÍDA.`;
     }, 30000);
 }
 
-
-// =========================================================
-//      7. NOVO CARREGAMENTO DE 30 SEGUNDOS (COM SALVAMENTO)
-// =========================================================
 
 function iniciarCarregamentoRelatorio() {
     // 1. Obter o DDD base e SALVAR os números aleatórios no localStorage
@@ -361,22 +348,19 @@ function iniciarCarregamentoRelatorio() {
         if (dddBase.length === 2) {
             salvarNumerosConversas(dddBase); 
         } else {
-            console.error("Não foi possível obter o DDD. Os números de relatório podem estar incompletos.");
+             // Caso não tenha conseguido o DDD
         }
-    } else {
-         console.warn("Elemento inputTelefone não encontrado. Não foi possível obter o DDD para geração.");
-    }
+    } 
     
     // 2. Iniciar animação e contagem
     fecharPopupDados();
 
     if (!relatorioLoadingPopup || !relatorioLoadingBarFill || !relatorioLoadingCounter) {
-        console.error("Elementos do pop-up de relatório não encontrados.");
         return;
     }
 
     relatorioLoadingPopup.style.display = 'flex';
-    iniciarBuscaRapida();
+    iniciarBuscaRapida(); // Inicia a animação de texto
 
     relatorioLoadingBarFill.style.transition = 'none';
     relatorioLoadingBarFill.style.width = '0%';
@@ -397,7 +381,7 @@ function iniciarCarregamentoRelatorio() {
         if (count >= 30) {
             clearInterval(intervalId); 
             
-            // 3. Redirecionar para a página que irá ler os dados
+            // 3. Redirecionar
             setTimeout(() => {
                 relatorioLoadingPopup.style.display = 'none';
                 window.location.href = 'relatorio_parceira.html'; // Redireciona
@@ -408,14 +392,11 @@ function iniciarCarregamentoRelatorio() {
 
 
 // =========================================================
-//             7. CONFIGURAÇÃO DE ROLAGEM DE MENSAGENS
-//               (FÁCIL DE EDITAR AQUI)
+//          5. CONFIGURAÇÃO DE ROLAGEM DE MENSAGENS
 // =========================================================
 
 /**
  * 📢 EDIÇÃO FÁCIL: Configure aqui as mensagens e os tempos para cada parágrafo.
- * Você pode adicionar, remover ou editar as mensagens de cada array (lista).
- * Os tempos de pausa são aleatórios entre o MIN e o MAX definidos.
  */
 const CONFIG_ROLAGEM = [
     {
@@ -425,7 +406,6 @@ const CONFIG_ROLAGEM = [
             "Fotos suspeitas apagadas recuperadas (3)",
             "Contatos bloqueados identificados"
         ],
-        // O tempo de troca será aleatório entre 4.0 e 7.0 segundos
         pausaMinMs: 4000, 
         pausaMaxMs: 7000,
     },
@@ -436,7 +416,6 @@ const CONFIG_ROLAGEM = [
             "Áudios deletados recuperados com sucesso",
             "Localização enviada recentemente"
         ],
-        // O tempo de troca será aleatório entre 3.5 e 5.5 segundos
         pausaMinMs: 3500, 
         pausaMaxMs: 5500,
     },
@@ -447,7 +426,6 @@ const CONFIG_ROLAGEM = [
             "Arquivos ocultos encontrados em cache",
             "Atividade suspeita detectada"
         ],
-        // O tempo de troca será aleatório entre 5.0 e 8.0 segundos
         pausaMinMs: 5000, 
         pausaMaxMs: 8000,
     },
@@ -458,22 +436,13 @@ const CONFIG_ROLAGEM = [
             "Dados de backup comprometidos",
             "Mensagens recuperadas de grupos (4)"
         ],
-        // O tempo de troca será aleatório entre 4.5 e 6.5 segundos
         pausaMinMs: 4500, 
         pausaMaxMs: 6500,
     },
 ];
 
-const MAX_ATRASO_INICIAL_MS = 2000; // Atraso máximo (2.0s) para dessincronizar o início
+const MAX_ATRASO_INICIAL_MS = 2000; 
 
-/**
- * Inicia a rolagem de mensagens em um elemento com conteúdo, pausa e atraso iniciais variáveis.
- * @param {string} idElemento O ID do elemento SPAN.
- * @param {string[]} mensagensArray O array de mensagens exclusivo para este elemento.
- * @param {number} minMs O tempo mínimo de pausa (em ms).
- * @param {number} maxMs O tempo máximo de pausa (em ms).
- * @param {number} delayMs Atraso inicial em milissegundos para dessincronizar.
- */
 function iniciarRolagemDeMensagens(idElemento, mensagensArray, minMs, maxMs, delayMs = 0) {
     const elemento = document.getElementById(idElemento);
     if (!elemento || mensagensArray.length === 0) return; 
@@ -501,7 +470,7 @@ function iniciarRolagemDeMensagens(idElemento, mensagensArray, minMs, maxMs, del
 
 
 // =========================================================
-//            8. LISTENERS INICIAIS E CHECAGEM DE PÁGINA
+//          6. LISTENERS INICIAIS E BLOCO PRINCIPAL
 // =========================================================
 
 // Ouve o clique no botão 'Monitorar' (Página Inicial)
@@ -518,24 +487,56 @@ if (botaoMonitorar) {
     });
 }
 
-// **INTEGRAÇÃO CRÍTICA DA ROLAGEM:**
-// Chamada das funções na página de destino (Relatório)
+// BLOCO PRINCIPAL PARA FUNCIONALIDADES DA PÁGINA DE RELATÓRIO
+// Ele só roda se o título da página ou o caminho indicar que é a página de relatório.
 if (document.title.includes('Relatório de Conversas') || 
     window.location.pathname.endsWith('relatorio_parceira.html')) {
     
     document.addEventListener('DOMContentLoaded', () => {
-        // 1. Preenche os números de telefone
+        
+        // --- A. Funcionalidades do Relatório (Existentes) ---
         preencherNumerosNoRelatorio(); 
         
-        // 2. INICIA A ROLAGEM DOS ELEMENTOS
         CONFIG_ROLAGEM.forEach(config => {
             iniciarRolagemDeMensagens(
                 config.id, 
                 config.mensagens, 
                 config.pausaMinMs, 
                 config.pausaMaxMs, 
-                Math.random() * MAX_ATRASO_INICIAL_MS // Atraso inicial aleatório para dessincronizar
+                Math.random() * MAX_ATRASO_INICIAL_MS
             );
         });
+        
+        // --- B. Funcionalidade do Modal de Desbloqueio (Nova) ---
+        const conversas = document.querySelectorAll('.conversas_recuperadas');
+        const modal = document.getElementById('modal-desbloqueio');
+        const fecharBtn = document.querySelector('.modal-close-btn');
+
+        // 1. Abrir o modal ao clicar em qualquer div de conversa
+        conversas.forEach(conversa => {
+            conversa.addEventListener('click', () => {
+                if (modal) {
+                    modal.style.display = 'flex';
+                }
+            });
+        });
+
+        // 2. Fechar o modal ao clicar no 'X'
+        if (fecharBtn) {
+            fecharBtn.addEventListener('click', () => {
+                if (modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // 3. Fechar o modal ao clicar fora (no overlay)
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
     });
 }

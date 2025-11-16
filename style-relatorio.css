@@ -224,6 +224,7 @@ MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telass > 1024px)
         width: 70%; /* Define a largura ideal das conversas internas */
         height: 15vh;
         padding: 15px 20px; /* Aumenta o padding interno para melhor visualização */
+        cursor: pointer;
     }
 
     .img_perfil {
@@ -333,4 +334,96 @@ AJUSTES PARA EMBASAMENTO E CADEADO (FINAL)
         width: 45%; 
         max-width: 350px;
     }
+}
+
+/*
+====================================
+ESTILOS DO MODAL (POPUP)
+====================================
+*/
+
+/* 1. Estilo do fundo escuro (Overlay) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que fique acima de tudo */
+}
+
+/* 2. Estilo do Conteúdo Principal do Modal */
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px; /* Limita o tamanho em telas grandes */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease-out; /* Adiciona uma pequena animação */
+}
+
+/* 3. Imagem (Ícone de Bloqueio/WhatsApp) */
+.modal-img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+/* 4. Texto de aviso */
+.modal-text {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* 5. Link/Botão do WhatsApp */
+.whatsapp-link {
+    display: block;
+    padding: 12px 20px;
+    background-color: #25D366; /* Cor do WhatsApp */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.whatsapp-link:hover {
+    background-color: #128C7E;
+}
+
+/* 6. Botão de Fechar (X) */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+    color: #333;
+}
+
+/* 7. Altera o cursor ao passar nas conversas para indicar que é clicável */
+.conversas_recuperadas {
+    /* ... (mantenha os estilos existentes) ... */
+    cursor: pointer; /* Adiciona cursor para indicar interatividade */
+}
+
+/* Animação simples */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
