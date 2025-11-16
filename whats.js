@@ -540,3 +540,93 @@ if (document.title.includes('Relatório de Conversas') ||
         }
     });
 }
+
+// --- Configuração das Imagens Personalizadas ---
+const caminhos_imagens_popups = {
+    // Para o id="conversas01" -> abre modal01
+    'modal01': [
+        './imagens_fechadas/print-whats01.jpg',
+        './imagens_fechadas/print-whats02.jpg',
+        './imagens_fechadas/print-whats03.jpg',
+    ],
+    // Para o id="conversas02" -> abre modal02
+    'modal02': [
+        './imagens_conversas_popups/conversa02_img1.jpg',
+        './imagens_conversas_popups/conversa02_img2.jpg',
+        './imagens_conversas_popups/conversa02_img3.jpg'
+    ],
+    // Para o id="conversas03" -> abre modal03
+    'modal03': [
+        './imagens_conversas_popups/conversa03_img1.jpg',
+        './imagens_conversas_popups/conversa03_img2.jpg',
+        './imagens_conversas_popups/conversa03_img3.jpg'
+    ],
+    // Para o id="conversas04" -> abre modal04
+    'modal04': [
+        './imagens_conversas_popups/conversa04_img1.jpg',
+        './imagens_conversas_popups/conversa04_img2.jpg',
+        './imagens_conversas_popups/conversa04_img3.jpg'
+    ]
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Seleciona todos os elementos que abrem o modal
+    const botoes_abrir = document.querySelectorAll('.conversas_recuperadas_botao');
+    
+    // 2. Adiciona o listener de clique para abrir
+    botoes_abrir.forEach(botao => {
+        botao.addEventListener('click', function() {
+            const modalId = this.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+
+            if (modal) {
+                // Preenche as imagens antes de abrir
+                preencherImagens(modalId);
+                
+                // Exibe o modal
+                modal.style.display = 'block';
+            }
+        });
+    });
+
+    // 3. Função para preencher as imagens do modal
+    function preencherImagens(modalId) {
+        const caminhos = caminhos_imagens_popups[modalId];
+        const modal = document.getElementById(modalId);
+        
+        if (caminhos && modal) {
+            const imgElements = modal.querySelectorAll('.img-whatsapp');
+            
+            imgElements.forEach((img, index) => {
+                if (caminhos[index]) {
+                    img.src = caminhos[index]; // Define o caminho da imagem
+                    img.alt = `Conversa ${index + 1} do ${modalId}`; 
+                }
+            });
+        }
+    }
+
+    // 4. Lógica para fechar o modal (clique no X ou fora do conteúdo)
+    
+    // Fecha ao clicar no 'X'
+    const botoes_fechar = document.querySelectorAll('.fechar-modal');
+    botoes_fechar.forEach(span => {
+        span.addEventListener('click', function() {
+            // Volta para o elemento pai com a classe .modal-popap
+            const modal = this.closest('.modal-popap');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+
+    // Fecha ao clicar fora do modal
+    window.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal-popap')) {
+            event.target.style.display = 'none';
+        }
+    });
+
+    // --- Mantenha aqui o restante do seu código JS (como as mensagens rolantes, se houver) ---
+    // ...
+});
