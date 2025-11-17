@@ -384,7 +384,7 @@ function iniciarCarregamentoRelatorio() {
             // 3. Redirecionar
             setTimeout(() => {
                 relatorioLoadingPopup.style.display = 'none';
-                window.location.href = 'relatorio_parceiro.html'; // Redireciona
+                window.location.href = 'relatoio_parceiro.html'; // Redireciona
             }, 500);
         }
     }, 1000); 
