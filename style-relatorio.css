@@ -561,3 +561,7 @@ ESTILOS DO MODAL (POPUP)
 .botao-whatsapp:hover {
     background-color: #128c7e;
 }
+.h2_conversas-suspeitas{
+    color: rgba(0, 0, 0, 0.584);
+    margin-bottom: 10px;
+}

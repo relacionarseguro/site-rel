@@ -543,22 +543,22 @@ if (document.title.includes('Relatório de Conversas') ||
 
 // --- Configuração das Imagens Personalizadas ---
 const caminhos_imagens_popups = {
-    // Para o id="conversas01" -> abre modal01
-    'modal01': [
-        './imagens_fechadas/print-whats01.jpg',
-        './imagens_fechadas/print-whats02.jpg',
-        './imagens_fechadas/print-whats03.jpg',
+    // Para o id="conversas01" -> abre 
+       'modal01': [
+        './imagens_fechadas/imagens-whats-dele/print-whats05.jpg',
+        './imagens_fechadas/imagens-whats-dele/print-whats06.jpg',
+        './imagens_fechadas/imagens-whats-dele/print-whats03.jpg',
     ],
     // Para o id="conversas02" -> abre modal02
     'modal02': [
-        './imagens_conversas_popups/conversa02_img1.jpg',
-        './imagens_conversas_popups/conversa02_img2.jpg',
+        './imagens_fechadas/imagens-whats-dele/print-whats04.jpg',
+        './imagens_fechadas/imagens-whats-dele/print-whats01.jpg',
         './imagens_conversas_popups/conversa02_img3.jpg'
     ],
     // Para o id="conversas03" -> abre modal03
     'modal03': [
-        './imagens_conversas_popups/conversa03_img1.jpg',
-        './imagens_conversas_popups/conversa03_img2.jpg',
+        './imagens_fechadas/imagens-whats-dele/print-whats02.jpg',
+        './imagens_fechadas/imagens-whats-dele/print-whats07.jpg',
         './imagens_conversas_popups/conversa03_img3.jpg'
     ],
     // Para o id="conversas04" -> abre modal04
