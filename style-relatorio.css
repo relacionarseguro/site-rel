@@ -10,25 +10,31 @@ Aplicam-se a telas pequenas e a todos os outros dispositivos
     box-sizing: border-box;
 }
 
-/* Base: Altura mantida, mas fontes e margens ajustadas */
+/* Base */
 .container_cabecalio {
     width: 100%;
-    height: 30vh; /* Mantém a altura baseada na altura da tela */
+    height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: rgb(133, 240, 133);
-    padding: 10px; /* Adiciona padding para evitar que o conteúdo toque as bordas */
+    padding: 10px;
 }
 
-/* Elementos do cabeçalho */
 .icone-whatsapp {
-    width: 40px; /* Reduz o ícone para telas menores */
+    width: 40px;
     margin-bottom: 10px;
 }
 
-/* Base: Ajustamos o width para 95% para telas menores */
+.h2_conversas-suspeitas{
+    color: rgba(0, 0, 0, 0.584);
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Containers Principais */
 .container_conversas_principal {
     display: flex;
     justify-content: center;
@@ -38,127 +44,205 @@ Aplicam-se a telas pequenas e a todos os outros dispositivos
     width: 100%;
 }
 
-.container_conversas {
+.container_conversas,
+.container_fotos_proibidas {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 95%; /* Ocupa quase toda a largura em telas pequenas */
-    height: auto; /* Altura automática */
-    min-height: 60vh; /* Define uma altura mínima */
-    padding: 10px;
+    width: 95%;
+    height: auto;
+    min-height: 60vh; 
+    padding: 15px 10px;
     border-radius: 15px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); 
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
-.conversas_recuperadas {
+/* Estilos de Conversas */
+.conversas_recuperadas, 
+.conversas_recuperadas_botao {
     display: flex;
-    justify-content: flex-start; /* Alinha à esquerda em telas pequenas */
+    justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    width: 100%; /* Ocupa toda a largura do container pai */
-    height: 12vh; /* Altura relativa */
+    width: 100%;
+    height: 12vh;
     border: 1px solid black;
     border-radius: 10px;
-    margin: 8px 0; /* Margem vertical ajustada */
+    margin: 8px 0;
     padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.conversas_recuperadas:hover, 
+.conversas_recuperadas_botao:hover {
+    background-color: #f0f0f0; 
 }
 
 .img_perfil {
-    width: 40px; /* Perfil menor */
-    min-width: 40px; /* Garante que não diminua demais */
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
     margin-right: 10px;
+    filter: blur(2px);
+    transition: filter 0.3s; 
 }
 
 .texto_apresentacao {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinha o texto à esquerda */
+    align-items: flex-start;
     flex-direction: column;
     width: 100%;
     padding: 5px;
-    font-size: 0.9em; /* Reduz o tamanho da fonte */
+    font-size: 0.9em; 
 }
 
-/* Cores mantidas */
+/* Cores e Texto */
 .palavra01 { color: rgb(238, 51, 18); }
 .palavra02 { color: rgb(235, 182, 37); }
 .palavra03 { color: rgb(238, 51, 18); }
 
-/* Novos estilos responsivos: */
 .telegone_mensagem_recuperada {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     color: rgba(0, 0, 0, 0.582);
-    /* Adiciona flexibilidade para ocupar o espaço restante */
     flex-grow: 1; 
 }
 
 .numero_tel {
     color: black;
     margin-bottom: 5px;
-    font-size: 1em; /* Tamanho base */
+    font-size: 1em; 
 }
 
-/* Estilos da seção de fotos */
-.container_fotos_proibidas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 95%; /* Ajustado para 95% em mobile */
-    height: auto;
-    min-height: 60vh;
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 15px;
-    margin-top: 15px; /* Adicionado para consistência */
-}
-
+/* Estilos da Seção de Fotos */
 .fotos_conjunto {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column; 
+    width: 100%;
 }
 
+/* Imagem Padrão (Sem blur/bloqueio) */
 .fotos01 {
-    width: 90%; /* Ajustado para 90% da largura do container em mobile */
-    max-width: 300px; /* Garante que não ultrapasse 300px em mobile */
-    margin: 10px;
+    width: 90%; 
+    max-width: 300px; 
+    margin: 10px 0;
+    border: 4px solid rgb(243, 86, 43);
+    border-radius: 20px;
+    height: auto;
+}
+
+/* Imagem Bloqueada */
+.foto-embacada-container {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+    overflow: hidden;
+    width: 90%;
+    max-width: 300px; 
     border: 4px solid rgb(243, 86, 43);
     border-radius: 20px;
 }
 
-
-/* Estilo base para todos os ícones Material Symbols (se não tiver) */
-.material-symbols-outlined {
-    /* Mantido o display: flex para que o span p possa alinhá-lo */
-    display: flex;
-    align-items: center; 
-    font-variation-settings:
-    'FILL' 0, /* Não preenchido */
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
+.fotos02 {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border: none;
+    border-radius: 16px;
+    filter: blur(10px);
+    transition: filter 0.3s; 
 }
 
-/* Estilo personalizado para o ícone de interrogação */
-.icone-exclamacao-vermelha { /* Corrigi o nome para o usado no HTML */
-    color: red; /* Define a cor vermelha */
-    font-size: 1.3em; /* Ajusta o tamanho para o texto */
-    margin-right: 4px; /* Adiciona um pequeno espaçamento após o ícone */
-    /* Garante que o ícone e o texto fiquem na mesma linha */
+.icone-cadeado {
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -100%); 
+    font-size: 3em; 
+    color: white; 
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    z-index: 10;
+    font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 48;
+}
+
+.texto-bloqueado {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, 40%); 
+    font-size: 1.1em; 
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+    z-index: 10;
+    white-space: nowrap;
+}
+
+/* Botão Liberar Vídeos/Fotos */
+.liberar-videos-fotos {
+    border: 2px solid rgb(12, 150, 12);
+    background-color: #45e580;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.325);
+    color: white;
+    width: 90%; 
+    max-width: 600px;
+    padding: 15px; 
+    font-size: 1.1em;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 20px auto;
+    transition: all 0.3s;
+}
+
+.liberar-videos-fotos:hover {
+    background-color: #71da97;
+    box-shadow: none;
+}
+
+/* Estilos de Ícones */
+.material-symbols-outlined {
+    display: flex;
+    align-items: center; 
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.icone-exclamacao-vermelha {
+    color: red;
+    font-size: 1.3em; 
+    margin-right: 4px;
     display: inline-block; 
+}
+
+.conversas-de-whatsapp {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.print_whats {
+    width: 100px;
+    margin: 10px;
+    border: 1px solid black;
+    filter: blur(2px);
+    transition: filter 0.3s; 
 }
 
 /*
 ====================================
-MEDIA QUERY PARA TABLET (Telass > 600px)
+MEDIA QUERY PARA TABLET (Telas > 600px)
 ====================================
 */
 @media (min-width: 600px) {
@@ -168,8 +252,8 @@ MEDIA QUERY PARA TABLET (Telass > 600px)
     }
 
     .container_conversas,
-    .container_fotos_proibidas { /* Aplicado ao container de fotos também */
-        width: 80%; /* Aumenta a largura na tela do tablet */
+    .container_fotos_proibidas { 
+        width: 80%;
         min-height: 70vh;
         padding: 20px;
         border-radius: 20px;
@@ -177,8 +261,9 @@ MEDIA QUERY PARA TABLET (Telass > 600px)
         margin-bottom: 20px;
     }
 
-    .conversas_recuperadas {
-        width: 85%; /* Um pouco menor que 100% no tablet */
+    .conversas_recuperadas,
+    .conversas_recuperadas_botao {
+        width: 85%;
         height: 15vh;
         border-radius: 15px;
         margin: 10px;
@@ -188,303 +273,137 @@ MEDIA QUERY PARA TABLET (Telass > 600px)
     .img_perfil {
         width: 50px;
         min-width: 50px;
+        height: 50px;
         margin-right: 20px;
     }
 
     .texto_apresentacao {
-        font-size: 1em; /* Tamanho da fonte padrão */
+        font-size: 1em;
     }
     
     .numero_tel {
-        font-size: 1.1em; /* Aumenta a fonte do telefone */
+        font-size: 1.1em;
     }
     
     .fotos01 {
-        width: 70%; /* Aumenta um pouco a largura da foto no tablet */
-        max-width: 450px; /* Limite um pouco maior */
+        width: 70%;
+        max-width: 450px;
+    }
+
+    .foto-embacada-container {
+        width: 70%;
+        max-width: 450px; 
+    }
+
+    .liberar-videos-fotos {
+        width: 80%;
+        padding: 20px;
+        font-size: 1.3em;
+    }
+    
+    .liberar-videos-fotos:hover {
+        width: 80%;
+        padding: 20px;
     }
 }
 
-
 /*
 ====================================
-MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telass > 1024px)
+MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telas > 1024px)
 ====================================
 */
 @media (min-width: 1024px) {
     .container_conversas,
-    .container_fotos_proibidas { /* Aplicado ao container de fotos também */
-        width: 65%; /* Define uma largura ideal para desktop */
-        max-width: 900px; /* Opcional: Define uma largura máxima */
+    .container_fotos_proibidas { 
+        width: 65%;
+        max-width: 900px; 
         min-height: 70vh;
         padding: 30px;
     }
 
-    .conversas_recuperadas {
-        width: 70%; /* Define a largura ideal das conversas internas */
+    .conversas_recuperadas,
+    .conversas_recuperadas_botao {
+        width: 70%;
         height: 15vh;
-        padding: 15px 20px; /* Aumenta o padding interno para melhor visualização */
-        cursor: pointer;
+        padding: 15px 20px; 
     }
 
     .img_perfil {
-        width: 60px; /* Aumenta um pouco em desktop */
+        width: 60px;
         min-width: 60px;
+        height: 60px;
         margin-right: 25px;
-        background-size: cover;
-        filter: blur(2px);
-        transition: filter 0.3s; 
     }
 
     .texto_apresentacao {
-        font-size: 1.1em; /* Fonte um pouco maior para desktop */
+        font-size: 1.1em; 
     }
     
     .numero_tel {
-        font-size: 1.2em; /* Fonte do telefone maior */
+        font-size: 1.2em; 
     }
 
-    .fotos01 {
-        width: 50%; /* Ocupa menos espaço no container em desktop, focando na imagem */
-        max-width: 500px;
-        background-size: cover;
-        background-position: center;
-    }
-    
     .fotos_conjunto {
-        /* Permite que as fotos fiquem lado a lado se houver espaço */
         flex-direction: row; 
         flex-wrap: wrap; 
         justify-content: space-around;
         width: 100%;
-        background-color: rgba(255, 99, 71, 0.385);
+        background-color: rgba(255, 99, 71, 0.05);
         border-radius: 20px;
+        padding: 15px 0;
     }
     
-    /* Quando fotos_conjunto estiver em linha, ajuste a largura individual das fotos */
-    .fotos_conjunto .fotos01 {
-        width: 45%; /* Duas fotos por linha, aproximadamente */
-        max-width: 350px;
-    }
-}
-/*
-====================================
-AJUSTES PARA EMBASAMENTO E CADEADO (FINAL)
-====================================
-*/
-
-/* 1. Container para posicionar o cadeado sobre a imagem E SEGURAR A BORDA */
-.foto-embacada-container {
-    position: relative;
-    display: inline-block;
-    margin: 10px;
-    overflow: hidden;
-    
-    /* Borda nítida */
-    border: 4px solid rgb(243, 86, 43);
-    border-radius: 20px;
-}
-
-/* 2. Estilo da imagem: SÓ A IMAGEM RECEBE O EMBASAMENTO (Mantido) */
-.fotos02 {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    border: none;
-    border-radius: 16px;
-    
-    /* PROPRIEDADE CHAVE PARA EMBASAR A IMAGEM */
-    filter: blur(10px);
-    transition: filter 0.3s; 
-}
-
-/* 3. Estilo do ícone de cadeado (AJUSTADO PARA DAR ESPAÇO AO TEXTO) */
-.icone-cadeado {
-    position: absolute; 
-    top: 50%; 
-    left: 50%;
-    /* Ajuste para mover o ícone um pouco para cima, dando espaço para o texto */
-    transform: translate(-50%, -100%); 
-    font-size: 3em; 
-    color: white; 
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-    z-index: 10;
-    font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 48;
-}
-
-/* 4. NOVO: Estilo para o texto "Bloqueado" (SUBSTITUINDO o ::after) */
-.texto-bloqueado {
-    position: absolute;
-    top: 50%; /* Ponto de referência */
-    left: 50%;
-    /* Posiciona o texto logo abaixo da linha central */
-    transform: translate(-50%, 40%); 
-    
-    font-size: 1.1em; 
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-    z-index: 10;
-    white-space: nowrap;
-}
-
-/* 5. Ajuste responsivo para telas grandes (Mantido) */
-@media (min-width: 1024px) {
+    .fotos_conjunto .fotos01,
     .fotos_conjunto .foto-embacada-container {
-        width: 45%; 
+        width: 45%;
         max-width: 350px;
+        margin: 15px;
+    }
+    
+    .liberar-videos-fotos {
+        width: 600px;
+        padding: 20px;
+        font-size: 1.5em;
+    }
+    
+    .liberar-videos-fotos:hover {
+        width: 600px;
+        padding: 20px;
     }
 }
 
+
 /*
 ====================================
-ESTILOS DO MODAL (POPUP)
+ESTILOS DO MODAL (POPUP) - (RESPONSIVO POR MAX-WIDTH)
 ====================================
 */
-
-/* 1. Estilo do fundo escuro (Overlay) */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Garante que fique acima de tudo */
-}
-
-/* 2. Estilo do Conteúdo Principal do Modal */
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 450px; /* Limita o tamanho em telas grandes */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    position: relative;
-    animation: fadeIn 0.3s ease-out; /* Adiciona uma pequena animação */
-}
-
-/* 3. Imagem (Ícone de Bloqueio/WhatsApp) */
-.modal-img {
-    width: 80px;
-    margin-bottom: 20px;
-}
-
-/* 4. Texto de aviso */
-.modal-text {
-    font-size: 1.1em;
-    color: #333;
-    margin-bottom: 25px;
-    line-height: 1.5;
-}
-
-/* 5. Link/Botão do WhatsApp */
-.whatsapp-link {
-    display: block;
-    padding: 12px 20px;
-    background-color: #25D366; /* Cor do WhatsApp */
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
-}
-
-.whatsapp-link:hover {
-    background-color: #128C7E;
-}
-
-/* 6. Botão de Fechar (X) */
-.modal-close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #aaa;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.modal-close-btn:hover {
-    color: #333;
-}
-
-/* 7. Altera o cursor ao passar nas conversas para indicar que é clicável */
-.conversas_recuperadas {
-    /* ... (mantenha os estilos existentes) ... */
-    cursor: pointer; /* Adiciona cursor para indicar interatividade */
-}
-
-/* Animação simples */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-.conversas-de-whatsapp{
-     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    border: 1px solid black;
-}
-.print_whats{
-    width: 100px;
-    margin: 10px;
-    border: 1px solid black;
-    filter: blur(2px);
-    transition: filter 0.3s; 
-}
-
-/* Estilo para a Div Principal que abre o Pop-up (Nova classe) */
-.conversas_recuperadas_botao {
-    cursor: pointer; /* Indica que é clicável */
-    /* Mantenha os estilos que você já tinha para 'conversas_recuperadas' */
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc; /* Exemplo de borda */
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
-
-.conversas_recuperadas_botao:hover {
-    background-color: #f0f0f0; /* Efeito de hover */
-}
-
-/* --- Estilos do Modal Pop-up --- */
 
 /* Contêiner principal do modal (tela cheia) */
 .modal-popap {
-    display: none; /* Começa escondido */
+    display: none; 
     position: fixed; 
-    z-index: 100; /* Garante que fique acima de tudo */
+    z-index: 100; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto; 
-    background-color: rgba(0,0,0,0.7); /* Fundo escuro e transparente */
-    backdrop-filter: blur(2px); /* Efeito de desfoque (opcional, mas recomendado) */
-    -webkit-backdrop-filter: blur(5px); /* Compatibilidade com Safari */
+    background-color: rgba(0,0,0,0.7); 
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
     padding-top: 50px;
+    animation: fadeInModal 0.3s ease-out;
 }
 
 /* Conteúdo do Modal */
 .modal-conteudo {
     background-color: #fefefe;
-    margin: 5% auto; /* 5% do topo e centralizado */
+    margin: 5% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Largura do modal */
-    max-width: 400px; /* Limite a largura para melhor visualização em mobile */
+    width: 90%;
+    max-width: 400px;
     border-radius: 10px;
     text-align: center;
     position: relative;
@@ -501,6 +420,7 @@ ESTILOS DO MODAL (POPUP)
     top: 10px;
     right: 15px;
     cursor: pointer;
+    transition: color 0.2s;
 }
 
 .fechar-modal:hover,
@@ -512,7 +432,7 @@ ESTILOS DO MODAL (POPUP)
 
 /* Ícone no Topo */
 .icone-modal-topo {
-    width: 60px; /* Ajuste o tamanho do seu ícone */
+    width: 60px; 
     margin-bottom: 15px;
 }
 
@@ -525,10 +445,9 @@ ESTILOS DO MODAL (POPUP)
 }
 
 .img-whatsapp {
-    width: 30%; /* Para que 3 imagens caibam lado a lado com espaço */
+    width: 30%; 
     height: auto;
     border-radius: 5px;
-    /* Efeito de desfoque ou cadeado nas imagens se necessário, mas o JS vai mudar o 'src' */
     filter: blur(2px); 
 }
 
@@ -541,13 +460,28 @@ ESTILOS DO MODAL (POPUP)
 }
 
 .frase-bloqueio strong {
-    color: green; /* Destaque a parte importante */
+    color: green; 
 }
 
-/* Botão do WhatsApp */
+/* Animação e Botão do WhatsApp */
+@keyframes pulse-whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(69, 229, 128, 0.7);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 10px 10px rgba(69, 229, 128, 0.4);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(69, 229, 128, 0.7);
+        transform: scale(1);
+    }
+}
+
 .botao-whatsapp {
     display: block;
-    background-color: #25d366; /* Cor do WhatsApp */
+    background-color: #25d366; 
     color: white;
     padding: 15px 20px;
     text-align: center;
@@ -556,12 +490,14 @@ ESTILOS DO MODAL (POPUP)
     font-weight: bold;
     font-size: 1.1em;
     transition: background-color 0.3s;
+    animation: pulse-whatsapp 1.5s infinite;
 }
 
 .botao-whatsapp:hover {
     background-color: #128c7e;
 }
-.h2_conversas-suspeitas{
-    color: rgba(0, 0, 0, 0.584);
-    margin-bottom: 10px;
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
 }

@@ -624,3 +624,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Mantenha aqui o restante do seu código JS (como as mensagens rolantes, se houver) ---
     // ...
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Lógica para o novo botão principal ---
+    const botaoPrincipal = document.getElementById('abrir-modal-principal');
+    const modalPrincipal = document.getElementById('modal-liberacao-principal');
+    
+    // Abrir o modal principal
+    if (botaoPrincipal && modalPrincipal) {
+        botaoPrincipal.addEventListener('click', () => {
+            modalPrincipal.style.display = 'block';
+        });
+    }
+
+    // --- Lógica para fechar o novo modal principal (reutilizando a classe .fechar-modal) ---
+    
+    // Fecha ao clicar no 'X'
+    const botoes_fechar = document.querySelectorAll('.fechar-modal');
+    botoes_fechar.forEach(span => {
+        span.addEventListener('click', function() {
+            // Isso fecha o modal principal e os modais de conversa, se abertos.
+            const modal = this.closest('.modal-popap');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+
+    // Fecha ao clicar fora do modal
+    window.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal-popap')) {
+            event.target.style.display = 'none';
+        }
+    });
+
+    // --- Mantenha aqui o restante do seu código JS (lógica dos 4 modais de conversa e mensagens rolantes) ---
+    // ...
+});
