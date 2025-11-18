@@ -27,6 +27,16 @@
 </head>
 <body>
     
+    <nav class="main-nav">
+        <button class="menu-hamburger" aria-label="Abrir Menu">
+             <span class="material-symbols-outlined">menu</span>
+        </button>
+        <ul class="nav-list">
+            <li><a href="#" id="parceiro">Home</a></li>
+            <li><a href="#" id="parceira">Contato</a></li>
+        </ul>
+    </nav>
+    
     <main>
         <header class="container_cabecalio">
             <h1>Relatorio completo do Whatsapp</h1>
@@ -42,7 +52,7 @@
                     <h2>whatsapp</h2>
                     </div>
                     
-                    <h3><strong class="palavra01">5 conversas encontradas</strong> foram encontradas durante a análise. O sistema conseguiu recuperar <strong class="palavra02">mensagens, <strong class="`palavra01">audios</strong>, <strong class="`palavra03">fotos</strong> e <strong class="`palavra01">videos</strong> apagados</strong>e algumas foram classificadas como <strong class="palavra03">críticas</strong> com base no conteúdo.</h3>
+                    <h3><strong class="palavra01">5 conversas encontradas</strong> foram encontradas durante a análise. O sistema conseguiu recuperar <strong class="palavra02">mensagens, <strong class="palavra01">audios</strong>, <strong class="palavra03">fotos</strong> e <strong class="palavra01">videos</strong> apagados</strong>e algumas foram classificadas como <strong class="palavra03">críticas</strong> com base no conteúdo.</h3>
                     
                 </div>
                 
@@ -102,27 +112,27 @@
             <button id="abrir-modal-principal" class="liberar-videos-fotos">Liberar todos os arquivos de videos, fotos e audios</button>
 
             <div id="modal-liberacao-principal" class="modal-popap">
-    <div class="modal-conteudo">
-        <span class="fechar-modal">&times;</span>
-        
-        <div class="modal-topo">
-            <img src="./imagem/icone-whatsapp01.png" alt="Ícone de Alerta" class="icone-modal-topo">
+        <div class="modal-conteudo">
+            <span class="fechar-modal">&times;</span>
+            
+            <div class="modal-topo">
+                <img src="./imagem/icone-whatsapp01.png" alt="Ícone de Alerta" class="icone-modal-topo">
+            </div>
+            
+            <p class="frase-bloqueio">Devido à alta demanda, para que não haja quebra de privacidade em massa e, por segurança e interesse somente no desbloqueio dos dados por partes interessadas, preferimos liberar o acesso <strong>somente via WhatsApp</strong>.</p>
+            
+            <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_DE_WHATSAPP_AQUI" target="_blank" class="botao-whatsapp">
+                Libere os arquivos
+            </a>
         </div>
-        
-        <p class="frase-bloqueio">Devido à alta demanda, para que não haja quebra de privacidade em massa e, por segurança e interesse somente no desbloqueio dos dados por partes interessadas, preferimos liberar o acesso <strong>somente via WhatsApp</strong>.</p>
-        
-        <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_DE_WHATSAPP_AQUI" target="_blank" class="botao-whatsapp">
-            Libere os arquivos
-        </a>
     </div>
-</div>
 
             <div class="container_fotos_proibidas">
                 <h2>Fotos e videos recuperadas</h2>
                 
                 <div class="fotos_conjunto">
                     
-                    <div class="foto-embacada-container">
+                    <div class="foto-embacada-container" data-modal="modal-liberacao-principal">
                         <img src="./imagens_fechadas/foto-ela01.jpg" class="fotos02" alt="Foto embacada de perfil">
                         <span class="material-symbols-outlined icone-cadeado">
                             lock
@@ -130,7 +140,7 @@
                         <span class="texto-bloqueado">Bloqueado</span>
                     </div> 
                     
-                    <div class="foto-embacada-container">
+                    <div class="foto-embacada-container" data-modal="modal-liberacao-principal">
                         <img src="./imagens_fechadas/foto-ela02.jpg" class="fotos02" alt="Foto embacada de perfil">
                         <span class="material-symbols-outlined icone-cadeado">
                             lock
@@ -138,7 +148,7 @@
                         <span class="texto-bloqueado">Bloqueado</span>
                     </div>
                     
-                    <div class="foto-embacada-container">
+                    <div class="foto-embacada-container" data-modal="modal-liberacao-principal">
                         <img src="./imagens_fechadas/foto-ela03.jpg" class="fotos02" alt="Foto embacada de perfil">
                         <span class="material-symbols-outlined icone-cadeado">
                             lock
@@ -146,7 +156,7 @@
                         <span class="texto-bloqueado">Bloqueado</span>
                     </div>
                     
-                    <div class="foto-embacada-container">
+                    <div class="foto-embacada-container" data-modal="modal-liberacao-principal">
                         <img src="./imagens_fechadas/foto-ela04.jpg" class="fotos02" alt="Foto embacada de perfil">
                         <span class="material-symbols-outlined icone-cadeado">
                             lock
@@ -154,7 +164,7 @@
                         <span class="texto-bloqueado">Bloqueado</span>
                     </div>
                     
-                    <div class="foto-embacada-container">
+                    <div class="foto-embacada-container" data-modal="modal-liberacao-principal">
                         <img src="./imagens_fechadas/foto-ela05.jpg" class="fotos02" alt="Foto embacada de perfil">
                         <span class="material-symbols-outlined icone-cadeado">
                             lock
@@ -162,7 +172,7 @@
                         <span class="texto-bloqueado">Bloqueado</span>
                     </div>
                     
-                    <div class="foto-embacada-container">
+                    <div class="foto-embacada-container" data-modal="modal-liberacao-principal">
                         <img src="./imagens_fechadas/foto-ela06.jpg" class="fotos02" alt="Foto embacada de perfil">
                         <span class="material-symbols-outlined icone-cadeado">
                             lock
@@ -174,6 +184,19 @@
             </div> 
 
     </main>
+    
+    <div id="loading-popup" class="modal-popap">
+        <div class="loading-content">
+            <h2 class="loading-titulo">🔎 Buscando perfil do WhatsApp...</h2>
+            
+            <div class="progress-container">
+                <div id="timer-count" class="timer-count">5s</div> 
+                <div class="progress-bar loading-bar-fill"></div>
+            </div>
+            
+            <p id="loading-message-text" class="loading-message">Encontrando WhatsApp...</p>
+        </div>
+    </div>
     
     <div id="modal01" class="modal-popap">
         <div class="modal-conteudo">
@@ -207,7 +230,7 @@
                 <img class="img-whatsapp" data-img-index="2" alt="Conversa 2 Bloqueada">
                 <img class="img-whatsapp" data-img-index="3" alt="Conversa 3 Bloqueada">
             </div>
-            <p class="frase-bloqueio">Devido à alta demanda, para que não haja quebra de privacidade em massa e, por segurança e interesse somente no desbloqueio dos dados por partes interessadas, preferimos liberar o acesso </strong>.</p>
+            <p class="frase-bloqueio">Devido à alta demanda, para que não haja quebra de privacidade em massa e, por segurança e interesse somente no desbloqueio dos dados por partes interessadas, preferimos liberar o acesso <strong>somente via WhatsApp</strong>.</p>
             <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_DE_WHATSAPP_AQUI" target="_blank" class="botao-whatsapp">
                 DESBLOQUEAR CONVERSAS
             </a>

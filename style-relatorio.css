@@ -25,7 +25,6 @@ Aplicam-se a telas pequenas e a todos os outros dispositivos
 .icone-whatsapp {
     width: 40px;
     margin-bottom: 10px;
-    margin-right: 10px;
 }
 
 .h2_conversas-suspeitas{
@@ -83,6 +82,15 @@ Aplicam-se a telas pequenas e a todos os outros dispositivos
     background-color: #f0f0f0; 
 }
 
+.data-popup-content {
+    padding: 40px; /* Reduza este valor! */
+    /* ... outras propriedades ... */
+}
+
+h3.numero-whatsap {
+    margin-bottom: 15px; /* Reduza este valor para algo como 5px */
+}
+
 .img_perfil {
     width: 40px;
     min-width: 40px;
@@ -105,9 +113,10 @@ Aplicam-se a telas pequenas e a todos os outros dispositivos
 }
 
 /* Cores e Texto */
-.palavra01 { color: rgb(238, 36, 18); }
+.palavra01 { color: rgb(238, 51, 18); }
 .palavra02 { color: rgb(235, 182, 37); }
 .palavra03 { color: rgb(238, 51, 18); }
+
 .telegone_mensagem_recuperada {
     display: flex;
     justify-content: center;
@@ -500,11 +509,4 @@ ESTILOS DO MODAL (POPUP) - (RESPONSIVO POR MAX-WIDTH)
 @keyframes fadeInModal {
     from { opacity: 0; transform: translateY(-50px); }
     to { opacity: 1; transform: translateY(0); }
-}
-.container-icone-escrita{
-     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row; 
-    color: rgb(68, 196, 100);
 }
