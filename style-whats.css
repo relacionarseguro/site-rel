@@ -303,6 +303,7 @@ body {
     font-size: 0.9rem;
     display: flex;
     align-items: center; 
+    justify-content: center;
 }
 .online-dot {
     display: inline-block;
@@ -314,10 +315,6 @@ body {
     transform: translateY(-0.0625rem); /* -1px */
 }
 
-.traco{
-    width: 100%;
-    border: 1px solid black;
-}
 
 .content-local{
     display: flex;
@@ -330,6 +327,7 @@ body {
 .cidade_localizacao{
      display: flex; 
      align-items: center; 
+     justify-content: center;
      flex-direction: row; 
      background-color: #70896a56;
      border: 1px solid black;
@@ -341,7 +339,7 @@ body {
 
 
 .btn_relatorio{
-    width: 25%; /* Ajustado para um bom tamanho em desktop */
+    width: 60%; /* Ajustado para um bom tamanho em desktop */
     max-width: 18.75rem; /* Limite máximo */
     height: 6.25vh; /* Ajustado para vh */
     border: 2px solid black;
