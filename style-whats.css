@@ -352,7 +352,7 @@ body {
     margin-top: 1rem; /* Adicionado um pouco de margem */
 }
 .btn_relatorio:hover{
-    width: 24%;
+    width: 59%;
     max-width: 18.4375rem;
     height: 5.75vh;
     background-color: rgb(59, 149, 39);

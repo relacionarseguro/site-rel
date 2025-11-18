@@ -631,3 +631,13 @@ ESTILOS DO POPUP DE DADOS (5 SEGUNDOS) - CORREÇÃO DE RESPONSIVIDADE E ESPAÇAM
         height: 50px;
     }
 }
+.container-icone-escrita{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.ecrita-whats{
+    color: rgb(78, 185, 115);
+    margin-left: 5px;
+}
