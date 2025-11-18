@@ -2,19 +2,22 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    /* Define o tamanho da fonte base para uso de rem */
+    font-size: 16px; 
 }
 
 /* 1. Estilo e Posicionamento do Header */
 .header-nav {
     background-color: #333;
     color: white;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem; /* 10px 20px convertido para rem */
     display: flex;
     justify-content: space-between; 
     align-items: center;
     position: relative; 
     z-index: 200; 
-    height: 10vh;
+    /* Usa min-height em vez de height fixo para melhor flexibilidade */
+    min-height: 10vh; 
 }
 
 /* 2. Estilo do Botão Hambúrguer */
@@ -23,14 +26,16 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
+    /* Visível por padrão, oculto apenas em telas grandes se o menu for inline */
+    display: block; 
 }
 
 .bar {
     display: block;
-    width: 25px;
-    height: 3px;
+    width: 1.5625rem; /* 25px */
+    height: 0.1875rem; /* 3px */
     background-color: white;
-    margin: 5px 0;
+    margin: 0.3125rem 0; /* 5px */
     transition: 0.4s;
 }
 
@@ -39,27 +44,29 @@ body {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 0.625rem 0.9375rem; /* 10px 15px */
+    border-radius: 0.3125rem; /* 5px */
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
 }
 
-/* 4. Estilo e Ocultação da Sidebar (Menu) */
+/* 4. Estilo e Ocultação da Sidebar (Menu) - Padrão Mobile First */
 .nav-links {
     position: fixed; 
     top: 0; 
     left: 0; 
     height: 100%; 
-    width: 250px; 
+    width: 15.625rem; /* 250px */
+    max-width: 80vw; /* Limita a largura máxima no celular */
     background-color: #222; 
-    padding-top: 60px; 
+    padding-top: 3.75rem; /* 60px */
     z-index: 150; 
     display: flex;
     flex-direction: column; 
     transform: translateX(-100%); 
     transition: transform 0.3s ease-in-out; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
 }
 
 .nav-links.active {
@@ -69,7 +76,7 @@ body {
 .nav-links a {
     color: white;
     text-decoration: none;
-    padding: 15px 20px;
+    padding: 0.9375rem 1.25rem; /* 15px 20px */
     display: block; 
 }
 
@@ -80,40 +87,39 @@ body {
 /* 5. Estilo da Hero Section */
 .hero-section {
     text-align: center;
-    padding: 60px 20px; 
+    padding: 3.75rem 1.25rem; /* 60px 20px */
     background-color: #f4f4f4; 
     color: #333;
 }
 
 .hero-section h1 {
-    font-size: 2.5em; 
+    font-size: 2.5rem; 
     margin-top: 0; 
 }
 
 .hero-section p {
-    font-size: 1.2em;
-    max-width: 600px; 
-    margin: 10px auto 0 auto; 
+    font-size: 1.2rem;
+    max-width: 37.5rem; /* 600px */
+    margin: 0.625rem auto 0 auto; /* 10px */
 }
 
-/* Estilos de Parceiros (Responsividade em Telas Grandes/Notebook) */
+/* Estilos de Parceiros */
 .container-parceiro-parceira{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 20px;
-    padding: 10px;
+    margin-top: 1.25rem; /* 20px */
+    padding: 0.625rem; /* 10px */
     width: 100%;
     height: auto;
 }
 .parceiros{
-    /* Notebook: 50% é um bom tamanho */
-    width: 50%; 
-    height: 20vh;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.362); /* Reintroduzido o box-shadow */
+    width: 90%; /* Padrão mobile: ocupa mais espaço */
+    height: 15vh; /* Ajustado para vh para ser responsivo */
+    margin-bottom: 1.25rem; /* 20px */
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0.3125rem 0.3125rem 0.9375rem rgba(0, 0, 0, 0.362); /* 5px 5px 15px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,10 +129,10 @@ body {
     transition: 0.3s;
 }
 .parceiros:hover{
-    width: 49%;
-    height: 19vh;
+    width: 89%; /* Ajuste de hover no mobile */
+    height: 14.5vh;
     transition: 0.3s;
-    margin-top: 7px;
+    margin-top: 0.4375rem; /* 7px */
     background-color: rgb(49, 214, 49);
 }
 
@@ -139,30 +145,33 @@ body {
     width: 100%;
 }
 .tel_phone{
-    width: 250px;
-    height: 30px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.362);
-    margin-bottom: 20px;
-    margin-top: 8px;
-    font-size: 1.5em;
+    width: 15.625rem; /* 250px */
+    height: 1.875rem; /* 30px */
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0.3125rem 0.3125rem 0.9375rem rgba(0, 0, 0, 0.362);
+    margin-bottom: 1.25rem; /* 20px */
+    margin-top: 0.5rem; /* 8px */
+    font-size: 1.5rem;
     text-align: center;
+    max-width: 80%; /* Garante que não ultrapasse a largura da tela */
 }
 .btn-monitorar{
-    width: 300px;
-    height: 40px;
+    width: 18.75rem; /* 300px */
+    height: 2.5rem; /* 40px */
     background-color: #28a745; 
-    border-radius: 10px;
+    border-radius: 0.625rem; /* 10px */
     cursor: pointer;
-    box-shadow: none; /* Garante que o box-shadow seja zero quando não estiver piscando */
-    font-size: 1.3em;
+    box-shadow: none;
+    font-size: 1.3rem;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    max-width: 90%; /* Limita a largura */
+    box-sizing: border-box; /* Inclui padding na largura */
 }
 .btn-monitorar:hover{
-    width: 295px;
-    height: 38px;
+    width: 18.4375rem; /* 295px */
+    height: 2.375rem; /* 38px */
     background-color: rgb(64, 175, 64);
     box-shadow: none;
 }
@@ -176,8 +185,8 @@ body {
 
 .piscar {
     animation: piscar-forte 0.7s infinite alternate ease-in-out; 
-    box-shadow: 0 0 15px rgba(255, 255, 0, 0.9), 
-                0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0.9375rem rgba(255, 255, 0, 0.9), /* 15px */
+                0 0 0.3125rem rgba(0, 0, 0, 0.3); /* 5px */
     transition: all 0.7s ease-in-out; 
 }
 
@@ -200,23 +209,23 @@ body {
 
 .popup-content {
     background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 1.875rem; /* 30px */
+    border-radius: 0.5rem; /* 8px */
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); /* 0 4px 12px */
     text-align: center;
-    /* max-width ajustado para um bom tamanho em notebook */
-    max-width: 500px; 
-    width: 90%; /* Garante que ocupe a maioria da largura no celular */
+    max-width: 31.25rem; /* 500px - Otimizado para notebook */
+    width: 90%; /* Garante que ocupe a maioria da largura no celular/tablet */
     height: auto; 
-    min-height: 450px; 
+    min-height: 90vh; /* Pode ser muito alto, ajustei para ser responsivo abaixo */
+    box-sizing: border-box;
 }
 
 /* Estilos da Barra de Carregamento (Barra de 5s e 30s) */
 .loading-bar {
     width: 100%;
-    height: 20px;
+    height: 1.25rem; /* 20px */
     background-color: #e0e0e0;
-    border-radius: 10px;
+    border-radius: 0.625rem; /* 10px */
     overflow: hidden; 
 }
 
@@ -232,7 +241,7 @@ body {
 .relatorio-loading-bar-fill {
     height: 100%;
     width: 0%; 
-    background-color: #28a745; /* <--- A cor verde para o carregamento de 30s */
+    background-color: #28a745;
 }
 
 .btn-fechar-popup{
@@ -248,8 +257,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row; /* Padrão: Imagem e texto lado a lado */
-    margin: 15px 0; 
+    flex-direction: row; /* Padrão: Imagem e texto lado a lado (Desktop/Tablet) */
+    margin: 0.9375rem 0; /* 15px */
 }
 
 .status-perfil{
@@ -257,12 +266,12 @@ body {
     align-items: flex-start; 
     justify-content: center;
     flex-direction: column;
-    margin: 0 0 0 10px; 
+    margin: 0 0 0 0.625rem; /* 10px */
 }
 
 .img-01{
-    width: 100px;
-    border: 2px solid rgb(94, 243, 91);
+    width: 6.25rem; /* 100px */
+    border: 0.125rem solid rgb(94, 243, 91); /* 2px */
     border-radius: 50%;
 }
 
@@ -279,30 +288,30 @@ body {
 
 /* Espaçamento Controlado e Fino */
 .status-perfil h2 {
-    font-size: 1.2em;
-    margin-bottom: 2px; 
+    font-size: 1.2rem;
+    margin-bottom: 0.125rem; /* 2px */
 }
 
 .numero-whatsap{
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: normal; 
-    margin-bottom: 2px; 
+    margin-bottom: 0.125rem; /* 2px */
 }
 
 .status-online {
     color: rgb(49, 214, 49);
-    font-size: 0.9em;
-    display: flex; /* Garante alinhamento horizontal do ponto */
+    font-size: 0.9rem;
+    display: flex;
     align-items: center; 
 }
 .online-dot {
     display: inline-block;
-    width: 8px; 
-    height: 8px; 
+    width: 0.5rem; /* 8px */
+    height: 0.5rem; /* 8px */
     border-radius: 50%; 
     background-color: rgb(49, 214, 49); 
-    margin-right: 5px; 
-    transform: translateY(-1px); 
+    margin-right: 0.3125rem; /* 5px */
+    transform: translateY(-0.0625rem); /* -1px */
 }
 
 .traco{
@@ -324,29 +333,105 @@ body {
      flex-direction: row; 
      background-color: #70896a56;
      border: 1px solid black;
-     border-radius: 15px;
-     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.393);
+     border-radius: 0.9375rem; /* 15px */
+     box-shadow: 0.3125rem 0.3125rem 0.9375rem rgba(0, 0, 0, 0.393); /* 5px 5px 15px */
     }
-.img_map_celular{ margin-right: 20px; }
-.perfil-whatsapp, .numero-whatsap { justify-content: center; } /* Removido alinhamento aqui, use flex-start/center na Media Query */
+.img_map_celular{ margin-right: 1.25rem; } /* 20px */
+.perfil-whatsapp, .numero-whatsap { justify-content: center; } 
 
+
+.btn_relatorio{
+    width: 25%; /* Ajustado para um bom tamanho em desktop */
+    max-width: 18.75rem; /* Limite máximo */
+    height: 6.25vh; /* Ajustado para vh */
+    border: 2px solid black;
+    background-color: rgb(123, 235, 97);
+    box-shadow: 0.3125rem 0.3125rem 0.9375rem rgba(0, 0, 0, 0.651);
+    border-radius: 0.625rem; /* 10px */
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 1rem; /* Adicionado um pouco de margem */
+}
+.btn_relatorio:hover{
+    width: 24%;
+    max-width: 18.4375rem;
+    height: 5.75vh;
+    background-color: rgb(59, 149, 39);
+    box-shadow: none;
+    font-size: 1.3rem;
+    margin : 0.21875rem; /* 3.5px */
+    margin-top: 1.3rem;
+}
+
+/* Container principal das buscas */
+.search-output-container {
+    width: 90%; /* Ajustado para não ocupar 100% da tela em desktop */
+    max-width: 40rem; /* Limite máximo para desktop */
+    margin: 1.25rem auto 0 auto; /* Centraliza */
+}
+
+/* Estilo para cada item retangular (div) */
+.search-item {
+    background-color: #1a1a1a;
+    color: #00ff41;
+    border: 1px solid #00ff41;
+    padding: 0.5rem; /* 8px */
+    margin-bottom: 0.3125rem; /* 5px */
+    font-family: monospace;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden; 
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Adiciona elipses em caso de overflow */
+}
+
+.search-label {
+    color: #ffffff;
+    flex-shrink: 0; /* Impede que o label encolha */
+    padding-right: 0.5rem;
+}
+
+/* Efeito sutil de brilho no texto (opcional) */
+.search-value {
+    text-shadow: 0 0 0.125rem rgba(0, 255, 65, 0.7); /* 2px */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.icone_eles{
+    width: 1.875rem; /* 30px */
+    margin-right: 1.25rem; /* 20px */
+}
 
 /* ========================================================= */
 /* MEDIA QUERY: TABLETS E NOTEBOOKS MENORES (até 1024px) */
 /* ========================================================= */
-@media (max-width: 1024px) {
+@media (max-width: 64rem) { /* 1024px */
     /* Ajusta o padding do Header para telas menores */
     .header-nav {
-        padding: 8px 15px;
+        padding: 0.5rem 0.9375rem; /* 8px 15px */
     }
 
     /* Reduz a largura dos parceiros para telas de tablet */
     .parceiros {
         width: 70%; /* Ocupa mais espaço horizontal em telas de tablet */
+        height: 18vh; /* Ajustado para tablets */
     }
 
     .parceiros:hover{
         width: 69%;
+        height: 17.5vh;
+    }
+
+    .btn_relatorio {
+        width: 30%;
+        height: 8vh;
+        max-width: 15rem;
+    }
+    .btn_relatorio:hover{
+        width: 29%;
+        height: 7.5vh;
     }
 }
 
@@ -354,13 +439,21 @@ body {
 /* ========================================================= */
 /* MEDIA QUERY: CELULARES (até 600px) */
 /* ========================================================= */
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) { /* 600px */
     
     /* 1. Ajuste de Tamanhos Gerais */
     .hero-section {
-        padding: 30px 10px; /* Reduz o padding na Hero Section */
+        padding: 1.875rem 0.625rem; /* 30px 10px */
     }
     
+    .hero-section h1 {
+        font-size: 2rem; /* Reduz o tamanho do título */
+    }
+
+    .hero-section p {
+        font-size: 1rem; /* Reduz o tamanho do parágrafo */
+    }
+
     /* 2. Parceiros */
     .parceiros {
         width: 90%; /* Ocupa quase toda a largura */
@@ -373,8 +466,10 @@ body {
     
     /* 3. Popup */
     .popup-content {
-        padding: 20px 15px; /* Reduz o padding interno do popup */
-        min-height: 400px;
+        padding: 1.25rem 0.9375rem; /* 20px 15px */
+        min-height: auto; /* Remove o min-height muito alto */
+        max-height: 95vh;
+        overflow-y: auto; /* Permite scroll se o conteúdo for muito longo */
     }
 
     /* 4. Perfil Whatsapp (Muda para Vertical) */
@@ -384,8 +479,8 @@ body {
     }
 
     .img-01 {
-        width: 80px; 
-        margin-bottom: 10px; 
+        width: 5rem; /* 80px */
+        margin-bottom: 0.625rem; /* 10px */
     }
 
     /* 5. Bloco de Status */
@@ -405,60 +500,22 @@ body {
     .status-online {
         justify-content: center; /* Centraliza o ponto e o texto "online" juntos */
     }
-}
 
-.btn_relatorio{
-    width: 40%;
-    height: 10vh;
-    border: 2px solid black;
-    background-color: rgb(123, 235, 97);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.651);
-    border-radius: 10px;
-    color: white;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-.btn_relatorio:hover{
-    width: 39%;
-    height: 9vh;
-    border: 2px solid black;
-    background-color: rgb(59, 149, 39);
-    box-shadow: none;
-    font-size: 1,3em;
-    margin : 3.5px;
-}
+    /* 7. Botão Relatório */
+    .btn_relatorio {
+        width: 80%;
+        height: 7vh;
+        font-size: 1.3rem;
+        max-width: none;
+    }
 
-/* Container principal das buscas */
-.search-output-container {
-    width: 100%;
-    margin-top: 20px;
-}
+    .btn_relatorio:hover {
+        width: 78%;
+        height: 6.5vh;
+    }
 
-/* Estilo para cada item retangular (div) */
-.search-item {
-    background-color: #1a1a1a; /* Fundo escuro */
-    color: #00ff41; /* Texto verde de terminal */
-    border: 1px solid #00ff41;
-    padding: 8px;
-    margin-bottom: 5px; /* Espaçamento entre as divs */
-    font-family: monospace; /* Fonte monoespaçada para efeito de código */
-    font-size: 0.9em;
-    display: flex;
-    justify-content: space-between; /* Alinha label e valor em lados opostos */
-    overflow: hidden; /* Garante que as frases fiquem contidas */
-    white-space: nowrap;
-}
-
-.search-label {
-    color: #ffffff; /* Label mais claro */
-}
-
-/* Efeito sutil de brilho no texto (opcional) */
-.search-value {
-    text-shadow: 0 0 2px rgba(0, 255, 65, 0.7);
-}
-.icone_eles{
-    width: 30px;
-    margin-right: 20px;
-    
+    /* 8. Output de Busca */
+    .search-output-container {
+        width: 95%; /* Ocupa mais espaço em telas pequenas */
+    }
 }
