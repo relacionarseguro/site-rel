@@ -217,8 +217,6 @@ function abrirPopupDados(telefone) {
             dataPopupContent.innerHTML = `
                 
                       <div class="localizacao"> 
-
-                <p>Aqui vai vir os dados.</p>
                  <button class="btn-fechar-popup" onclick="fecharPopupDados()">Fechar</button>
                  <div class="container-perfil-whatsapp">
                     <img src="./imagem/icone-whatsapp02.png" alt="" class="img-01">
