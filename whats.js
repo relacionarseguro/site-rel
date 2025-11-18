@@ -216,6 +216,9 @@ function abrirPopupDados(telefone) {
             // Conteúdo do popup de 5s (Dados)
             dataPopupContent.innerHTML = `
                
+                      <div class="localizacao"> 
+
+
                  <button class="btn-fechar-popup" onclick="fecharPopupDados()">Fechar</button>
                  <div class="container-perfil-whatsapp">
                     <img src="./imagem/icone-whatsapp02.png" alt="" class="img-01">
@@ -227,7 +230,8 @@ function abrirPopupDados(telefone) {
                     </div>
                  </div>
                  <div class="content-local">
-                      <div class="localizacao">
+
+
                       <div class="cidade_localizacao">
                       <img src="./imagem/icon-celular.png" class="img_map_celular">
                       <p id="cidade_atual" class="localizacao_atual">Conectado em:</p>
@@ -238,11 +242,10 @@ function abrirPopupDados(telefone) {
                       <p id="cidade_atual" class="localizacao_atual">Status:</p>
                       <h3 class="h3_cidade">Ativo</h3>
 
-                    
                       </div>
-                <button id="btn-relatorio-dinamico" class="btn_relatorio">Ver Conversas</button>
+                    <button id="btn-relatorio-dinamico" class="btn_relatorio">Ver Conversas</button>
                       </div>
-                    
+                   
                  </div>
                 
             `;

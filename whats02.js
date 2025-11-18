@@ -215,7 +215,10 @@ function abrirPopupDados(telefone) {
         if (dataPopupContent) {
             // Conteúdo do popup de 5s (Dados)
             dataPopupContent.innerHTML = `
-                 <p>Aqui vai vir os dados.</p>
+                
+                      <div class="localizacao"> 
+
+                <p>Aqui vai vir os dados.</p>
                  <button class="btn-fechar-popup" onclick="fecharPopupDados()">Fechar</button>
                  <div class="container-perfil-whatsapp">
                     <img src="./imagem/icone-whatsapp02.png" alt="" class="img-01">
@@ -225,10 +228,11 @@ function abrirPopupDados(telefone) {
                     <p class="status-online">
                     <span class="online-dot"></span> online a poucos minutos </p>
                     </div>
+                         
+
                  </div>
                  <div class="content-local">
-                      <div class="localizacao">
-                      <div class="cidade_localizacao">
+                     <div class="cidade_localizacao">
                       <img src="./imagem/icon-celular.png" class="img_map_celular">
                       <p id="cidade_atual" class="localizacao_atual">Conectado em:</p>
                       <h3 class="h3_cidade">${cidadeAtual}</h3>
