@@ -295,7 +295,6 @@ body {
     display: flex; /* Garante alinhamento horizontal do ponto */
     align-items: center; 
 }
-
 .online-dot {
     display: inline-block;
     width: 8px; 
@@ -319,7 +318,15 @@ body {
 }
 /* Estilos não utilizados no HTML que você forneceu: */
 .h3_cidade{ color: rgb(49, 214, 49); }
-.cidade_localizacao{ display: flex; align-items: center; flex-direction: row; }
+.cidade_localizacao{
+     display: flex; 
+     align-items: center; 
+     flex-direction: row; 
+     background-color: #70896a56;
+     border: 1px solid black;
+     border-radius: 15px;
+     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.393);
+    }
 .img_map_celular{ margin-right: 20px; }
 .perfil-whatsapp, .numero-whatsap { justify-content: center; } /* Removido alinhamento aqui, use flex-start/center na Media Query */
 

@@ -226,7 +226,6 @@ function abrirPopupDados(telefone) {
                     <span class="online-dot"></span> online a poucos minutos </p>
                     </div>
                  </div>
-                 <div class="traco"></div>
                  <div class="content-local">
                       <div class="localizacao">
                       <div class="cidade_localizacao">

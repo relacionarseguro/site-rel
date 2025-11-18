@@ -82,14 +82,6 @@ Aplicam-se a telas pequenas e a todos os outros dispositivos
     background-color: #f0f0f0; 
 }
 
-.data-popup-content {
-    padding: 40px; /* Reduza este valor! */
-    /* ... outras propriedades ... */
-}
-
-h3.numero-whatsap {
-    margin-bottom: 15px; /* Reduza este valor para algo como 5px */
-}
 
 .img_perfil {
     width: 40px;
@@ -384,7 +376,7 @@ MEDIA QUERY PARA NOTEBOOK/DESKTOP (Telas > 1024px)
 
 /*
 ====================================
-ESTILOS DO MODAL (POPUP) - (RESPONSIVO POR MAX-WIDTH)
+ESTILOS DO MODAL DE CONVERSAS (POPUP MODAL-POPAP)
 ====================================
 */
 
@@ -509,4 +501,133 @@ ESTILOS DO MODAL (POPUP) - (RESPONSIVO POR MAX-WIDTH)
 @keyframes fadeInModal {
     from { opacity: 0; transform: translateY(-50px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/*
+====================================
+ESTILOS DO POPUP DE DADOS (5 SEGUNDOS) - CORREÇÃO DE RESPONSIVIDADE E ESPAÇAMENTO
+====================================
+*/
+
+/* Contêiner principal (Overlay) */
+#data-popup {
+    display: none; /* Controlado pelo JS */
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex; /* Usamos flexbox para centralizar */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Conteúdo do Popup */
+.data-popup-content {
+    background-color: white;
+    padding: 15px; /* Espaçamento interno mais compacto */
+    border-radius: 15px;
+    width: 90%; 
+    max-width: 450px; /* Largura máxima ideal para um popup */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+}
+
+/* Parágrafo inicial (ajustando o padding/margin) */
+.data-popup-content p:first-child {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px; 
+    padding: 0;
+}
+
+/* Botão Fechar */
+.btn-fechar-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    line-height: 1;
+    color: #888;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Contêiner do Perfil (Whatsapp) */
+.container-perfil-whatsapp {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 10px 15px; /* Espaçamento mais otimizado */
+    margin: 10px 0;
+    border: 1px solid #eee;
+}
+
+.container-perfil-whatsapp .img-01 {
+    width: 45px; /* Ícone do WhatsApp */
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Textos do Status/Perfil */
+.status-perfil {
+    flex-grow: 1;
+}
+
+.perfil-whatsapp {
+    font-size: 1.1em;
+    color: #25D366; 
+    margin: 0;
+}
+
+.numero-whatsap {
+    font-size: 0.95em;
+    color: #333;
+    margin: 2px 0;
+    font-weight: 600;
+}
+
+.status-online {
+    font-size: 0.85em;
+    color: #075E54;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.online-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #25D366;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Separador */
+
+.btn_relatorio:hover {
+    background-color: #45a049;
+}
+
+/* Media Query para o Popup em Telas Maiores */
+@media (min-width: 768px) {
+    .data-popup-content {
+        padding: 25px 30px;
+    }
+
+    .container-perfil-whatsapp .img-01 {
+        width: 50px;
+        height: 50px;
+    }
 }
