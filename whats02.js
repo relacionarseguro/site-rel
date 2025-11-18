@@ -238,9 +238,11 @@ function abrirPopupDados(telefone) {
                       <p id="cidade_atual" class="localizacao_atual">Status:</p>
                       <h3 class="h3_cidade">Ativo</h3>
                       </div>
+                   <button id="btn-relatorio-dinamico" class="btn_relatorio">Ver Conversas</button>
                       </div>
+                   
                  </div>
-                 <button id="btn-relatorio-dinamico" class="btn_relatorio">Ver Conversas</button>
+                 
             `;
             
             setTimeout(() => {
