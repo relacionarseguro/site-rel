@@ -216,8 +216,9 @@ body {
     max-width: 31.25rem; /* 500px - Otimizado para notebook */
     width: 90%; /* Garante que ocupe a maioria da largura no celular/tablet */
     height: auto; 
-    min-height: 90vh; /* Pode ser muito alto, ajustei para ser responsivo abaixo */
+    min-height: 70vh; /* Pode ser muito alto, ajustei para ser responsivo abaixo */
     box-sizing: border-box;
+    border: 5px solid black;
 }
 
 /* Estilos da Barra de Carregamento (Barra de 5s e 30s) */
@@ -258,8 +259,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row; /* Padrão: Imagem e texto lado a lado (Desktop/Tablet) */
-    margin: 0.9375rem 0; /* 15px */
-}
+  }
 
 .status-perfil{
     display: flex;
@@ -313,6 +313,7 @@ body {
     background-color: rgb(49, 214, 49); 
     margin-right: 0.3125rem; /* 5px */
     transform: translateY(-0.0625rem); /* -1px */
+   
 }
 
 
